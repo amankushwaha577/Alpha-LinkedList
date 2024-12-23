@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" filepath="$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/_001Basics/_001Basics.iml" filepath="$PROJECT_DIR$/_001Basics/_001Basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/_002Insertion-Deletion/_002Insertion-Deletion.iml" filepath="$PROJECT_DIR$/_002Insertion-Deletion/_002Insertion-Deletion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_003Size/_003Size.iml" filepath="$PROJECT_DIR$/_003Size/_003Size.iml" />
     </modules>
   </component>
 </project>
