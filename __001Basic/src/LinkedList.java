@@ -19,15 +19,15 @@ public class LinkedList {
         // Create a Node 'x' with the first element of the array
         Node x = new Node(arr[0]);
         // Printing the data stored in the Node
-        System.out.println(x.data);
+        System.out.println(x.data); // 2
 
 
         // Create a reference 'y' pointing to the same Node 'x'
         Node y = x;
         // Print the reference 'y', which represents the memory address of the Node 'x'
-        System.out.println(y);
+        System.out.println(y);  // @$@Address
 
         // Printing the data stored in the Node
-        System.out.println(y.data);
+        System.out.println(y.data);  // 2
     }
 }
