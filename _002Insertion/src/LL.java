@@ -48,6 +48,34 @@ class CustomLinkedList {
         System.out.println("null");
     }
 
+    public void deleteFirst(){
+        if (head == null) {
+            System.out.println("List is Empty");
+            return;
+        }
+        head= head.next;
+    }
+
+    public void deleteLast(){
+        if (head == null) {
+            System.out.println("List is Empty");
+            return;
+        }
+        if(head.next ==null){ // may be the case if only 1 node is there
+            head = null; // delete 1st node
+        }
+
+        Node secondLastNode = head;
+        Node lastNode = head.next;  // lastNode = null ( in case only 1 node )
+
+        while(lastNode.next != null){  // null.next may be the case if only 1 node is there ( handled above )
+            lastNode = lastNode.next;
+            secondLastNode = secondLastNode.next;
+        }
+
+        secondLastNode.next = null;
+    }
+
 
 }
 public class LL {
@@ -67,6 +95,12 @@ public class LL {
        list.addFirst(50);
        list.printList();
 
-       System.out.println("-------------------------------------");
+       System.out.println("-------------------------------------------");
+
+       list.deleteFirst();
+       list.printList();
+
+       list.deleteLast();
+       list.printList();
     }
 }
