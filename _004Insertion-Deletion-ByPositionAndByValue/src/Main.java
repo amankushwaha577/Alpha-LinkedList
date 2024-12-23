@@ -40,32 +40,31 @@ class CustomLinkedList {
     }
 
 
-    public void insertByPosition(int position, int data) {
+    public void insertByPosition(int k, int val) {
         // Inserts a new node with the given data at a specific position.
-        Node newNode = new Node(data);
+        Node newNode = new Node(val);
 
-        if (position == 0) { // Insert at the head.
+        if (k == 1) { // Insert at the head.
             newNode.next = head;
             head = newNode;
             return;
         }
 
-        Node currNode = head;
-        int count = 0;
+        int cnt = 0;
+        Node temp = head;
 
-        // Traverse to the node just before the desired position.
-        while (currNode != null && count < position - 1) {
-            currNode = currNode.next;
-            count++;
+        // Traverse the linked list to find the node at position k-1
+        while (temp != null) {
+            cnt++;
+            if (cnt == k - 1) {
+                // Insert the new node after the node at position k-1
+                newNode.next = temp.next;
+                temp.next = newNode;
+                break;
+            }
+            temp = temp.next;
         }
 
-        if (currNode == null) {
-            System.out.println("Position out of bounds");
-            return;
-        }
-
-        newNode.next = currNode.next; // Re-link to insert the new node.
-        currNode.next = newNode;
     }
 
     public void deleteByPosition(int k) {
@@ -139,6 +138,11 @@ public class Main {
 
         list.deleteByValue(7);
         list.printList(); // After deleting the node with value 7
+
+        System.out.println("------------------------------------------------------");
+
+        list.insertByPosition(2,99999);
+        list.printList();
 
     }
 }
