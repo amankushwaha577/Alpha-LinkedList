@@ -63,7 +63,9 @@ class CustomLinkedList {
         }
         if(head.next ==null){ // may be the case if only 1 node is there
             head = null; // delete 1st node
+            return;
         }
+        // if execution is coming in this line it mean no of nodes > 1
 
         Node temp = head;
 
