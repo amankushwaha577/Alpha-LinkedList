@@ -65,15 +65,25 @@ class CustomLinkedList {
             head = null; // delete 1st node
         }
 
-        Node secondLastNode = head;
-        Node lastNode = head.next;  // lastNode = null ( in case only 1 node )
+        Node temp = head;
 
-        while(lastNode.next != null){  // null.next may be the case if only 1 node is there ( handled above )
-            lastNode = lastNode.next;
-            secondLastNode = secondLastNode.next;
+        // Traverse the list until the second-to-last node
+        while (temp.next.next != null) { // null.next may be the case if only 1 node is there ( handled above )
+            temp = temp.next;
         }
+        // Nullify the connection from the second-to-last node to delete the last node
+        temp.next = null;
 
-        secondLastNode.next = null;
+//        Node secondLastNode = head;
+//        Node lastNode = head.next;  // lastNode = null ( in case only 1 node )
+//
+//        while(lastNode.next != null){  // null.next may be the case if only 1 node is there ( handled above )
+//            lastNode = lastNode.next;
+//            secondLastNode = secondLastNode.next;
+//        }
+//
+//        secondLastNode.next = null;
+
     }
 
 
