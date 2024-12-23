@@ -82,26 +82,12 @@ class CustomLinkedList {
 public class Main {
     public static void main(String[] args) {
         CustomLinkedList list = new CustomLinkedList();
-        list.addFirst(1);
-        list.addFirst(2);
-        list.addFirst(3);
-        list.addFirst(4);
-        list.addFirst(5);
+
+        for(int i = 0; i<9; i++){
+            list.addLast(i);
+        }
         list.printList();
 
-        list.addLast(98);
-        list.addLast(99);
-        list.printList();
 
-        list.addFirst(50);
-        list.printList();
-
-        System.out.println("-------------------------------------------");
-
-        list.deleteFirst();
-        list.printList();
-
-        list.deleteLast();
-        list.printList();
     }
 }
