@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" filepath="$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/_001Basics/_001Basics.iml" filepath="$PROJECT_DIR$/_001Basics/_001Basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_002Insertion/_002Insertion.iml" filepath="$PROJECT_DIR$/_002Insertion/_002Insertion.iml" />
     </modules>
   </component>
 </project>
