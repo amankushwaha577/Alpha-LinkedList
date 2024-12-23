@@ -64,7 +64,34 @@ class CustomLinkedList {
             }
             temp = temp.next;
         }
+    }
 
+    public void insertBeforeValue(int k, int val) {
+        Node newNode = new Node(val);
+
+        if (head == null) {
+            return;
+        }
+
+        // Insert at the beginning if the value matches the head's data
+        if (head.data == k) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+
+        Node temp = head;
+
+        while (temp.next != null) {
+            // Insert at the current position if the next node has the desired value
+            if (temp.next.data == k) {
+                newNode.next = temp.next;
+                temp.next = newNode;
+                break;
+            }
+            temp = temp.next;
+        }
     }
 
     public void deleteByPosition(int k) {
@@ -142,6 +169,9 @@ public class Main {
         System.out.println("------------------------------------------------------");
 
         list.insertByPosition(2,99999);
+        list.printList();
+
+        list.insertBeforeValue(99999, 888);
         list.printList();
 
     }
