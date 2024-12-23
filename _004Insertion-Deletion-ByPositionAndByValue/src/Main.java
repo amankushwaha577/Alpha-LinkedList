@@ -11,17 +11,6 @@ class CustomLinkedList {
         }
     }
 
-    public void addFirst(int data) {
-        // Adds a new node with the given data at the beginning of the list.
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            return;
-        }
-        newNode.next = head;
-        head = newNode;
-    }
-
     public void addLast(int data) {
         // Adds a new node with the given data at the end of the list.
         Node newNode = new Node(data);
@@ -50,34 +39,6 @@ class CustomLinkedList {
         System.out.println("null");
     }
 
-    public void deleteFirst() {
-        // Deletes the first node in the list.
-        if (head == null) {
-            System.out.println("List is Empty");
-            return;
-        }
-        head = head.next;
-    }
-
-    public void deleteLast() {
-        // Deletes the last node in the list.
-        if (head == null) {
-            System.out.println("List is Empty");
-            return;
-        }
-        if (head.next == null) { // If only one node exists.
-            head = null;
-            return;
-        }
-
-        Node temp = head;
-
-        // Traverse the list until the second-to-last node.
-        while (temp.next.next != null) {
-            temp = temp.next;
-        }
-        temp.next = null; // Disconnect the last node.
-    }
 
     public void insertByPosition(int position, int data) {
         // Inserts a new node with the given data at a specific position.
@@ -137,54 +98,47 @@ class CustomLinkedList {
         }
     }
 
-    public void deleteByValue(int value) {
-        // Deletes the first node that contains the specified value.
-        if (head == null) {
-            System.out.println("List is Empty");
+    public void deleteByValue(int val) {
+        // Check if the list is empty
+        if (head == null)
             return;
-        }
 
-        if (head.data == value) { // If the head node contains the value.
+        // If the first node has the target value, delete it
+        if (head.data == val) {
             head = head.next;
             return;
         }
 
-        Node currNode = head;
+        // Traverse the list to find the node with the target value
+        Node temp = head;
+        Node prev = null;
 
-        // Traverse to find the node just before the one with the target value.
-        while (currNode.next != null && currNode.next.data != value) {
-            currNode = currNode.next;
+        while (temp != null) {
+            if (temp.data == val) {
+                // Adjust the pointers to skip the node with the target value
+                prev.next = temp.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
         }
-
-        if (currNode.next == null) {
-            System.out.println("Value not found in the list");
-            return;
-        }
-
-        currNode.next = currNode.next.next; // Remove the node.
     }
 }
 public class Main {
     public static void main(String[] args) {
         CustomLinkedList list = new CustomLinkedList();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 9; i++) {
             list.addLast(i);
         }
 
         list.printList(); // Original list
-//
-//        list.insertByPosition(2, 99);
-//        list.printList(); // After inserting 99 at position 2
 
         list.deleteByPosition(2);
         list.printList(); // After deleting the element at position 2
 
-//        list.deleteByValue(3);
-//        list.printList(); // After deleting the node with value 3
-//
-//        list.deleteByValue(10); // Attempt to delete a value not in the list
-
+        list.deleteByValue(7);
+        list.printList(); // After deleting the node with value 7
 
     }
 }
