@@ -6,7 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/_001SinglyLL/_001SinglyLL.iml" filepath="$PROJECT_DIR$/_001SinglyLL/_001SinglyLL.iml" />
       <module fileurl="file://$PROJECT_DIR$/_002Insertion-Deletion/_002Insertion-Deletion.iml" filepath="$PROJECT_DIR$/_002Insertion-Deletion/_002Insertion-Deletion.iml" />
       <module fileurl="file://$PROJECT_DIR$/_003Size/_003Size.iml" filepath="$PROJECT_DIR$/_003Size/_003Size.iml" />
-      <module fileurl="file://$PROJECT_DIR$/_004InBuildList/_004InBuildList.iml" filepath="$PROJECT_DIR$/_004InBuildList/_004InBuildList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_004Insertion-Deletion-ByPositionAndByValue/_004Insertion-Deletion-ByPositionAndByValue.iml" filepath="$PROJECT_DIR$/_004Insertion-Deletion-ByPositionAndByValue/_004Insertion-Deletion-ByPositionAndByValue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_005InBuildList/_005InBuildList.iml" filepath="$PROJECT_DIR$/_005InBuildList/_005InBuildList.iml" />
     </modules>
   </component>
 </project>
