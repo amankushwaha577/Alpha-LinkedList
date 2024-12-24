@@ -1,135 +1,130 @@
 class CustomDoublyLinkedList {
-    Node head; // Head of the list
+    Node head; // Head of the doubly linked list
 
-    // Inner class to define a Node in the doubly linked list
+    // Definition of a Node in the doubly linked list
     class Node {
-        int data;   // Data stored in the node
-        Node prev;  // Reference to the previous node
-        Node next;  // Reference to the next node
+        int data; // Data stored in the node
+        Node next; // Reference to the next node in the list
+        Node prev; // Reference to the previous node in the list
 
-        public Node(int data1) {
-            this.data = data1;  // Initialize data with the provided value
-            this.prev = null;   // Initialize prev as null
-            this.next = null;   // Initialize next as null
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+        }
+
+        public Node(int data, Node next, Node prev) {
+            this.data = data;
+            this.next = next;
+            this.prev = prev;
         }
     }
 
     /**
-     * Adds a new node with the given data at the beginning of the list.
-     * @param data The data for the new node.
+     * Adds a new node at the beginning of the list.
+     * @param data the value to be added at the beginning.
      */
     public void addFirst(int data) {
         Node newNode = new Node(data);
-        if (head == null) { // If the list is empty, set the new node as the head
+        if (head == null) {
             head = newNode;
             return;
         }
-        newNode.next = head; // Point new node's next to the current head
-        head.prev = newNode; // Point current head's prev to the new node
-        head = newNode;      // Update the head to the new node
+        newNode.next = head;
+        head.prev = newNode;
+        head = newNode;
     }
 
     /**
-     * Adds a new node with the given data at the end of the list.
-     * @param data The data for the new node.
+     * Adds a new node at the end of the list.
+     * @param data the value to be added at the end.
      */
     public void addLast(int data) {
         Node newNode = new Node(data);
-        if (head == null) { // If the list is empty, set the new node as the head
+        if (head == null) {
             head = newNode;
             return;
         }
         Node currNode = head;
-        while (currNode.next != null) { // Traverse to the last node
+        while (currNode.next != null) {
             currNode = currNode.next;
         }
-        currNode.next = newNode;  // Point last node's next to the new node
-        newNode.prev = currNode; // Point new node's prev to the last node
+        currNode.next = newNode;
+        newNode.prev = currNode;
     }
 
     /**
-     * Inserts a new node with the given data at a specific position in the list.
-     * @param k   The position (1-based index) where the new node will be inserted.
-     * @param val The data for the new node.
+     * Inserts a new node with the given value before the tail of the list.
+     * @param val the value to be inserted before the tail.
+     */
+    public void insertBeforeTail(int val) {
+        // Edge case: If the list has only one element
+        if (head == null || head.next == null) {
+            addFirst(val); // Use the existing addFirst method for single-element or empty list
+            return;
+        }
+
+        // Traverse to the tail node
+        Node tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+
+        // Create a new node with the given value
+        Node newNode = new Node(val);
+
+        // Update pointers to insert the new node before the tail
+        newNode.next = tail;
+        newNode.prev = tail.prev;
+        tail.prev.next = newNode;
+        tail.prev = newNode;
+    }
+
+    /**
+     * Inserts a new node with the given value at a specific position in the list.
+     * @param k the position to insert the new node (1-based index).
+     * @param val the value to be inserted at the specified position.
      */
     public void insertByPosition(int k, int val) {
         Node newNode = new Node(val);
 
         if (k == 1) { // If position is 1, insert at the beginning
-            newNode.next = head;
-            if (head != null) head.prev = newNode;
-            head = newNode;
+            addFirst(val); // Use the existing addFirst method
             return;
         }
 
-        int cnt = 0;
+        int cnt = 1;
         Node temp = head;
 
-        // Traverse the list to find the (k-1)th node
+        // Traverse the list to find the node at position k-1
         while (temp != null) {
-            cnt++;
             if (cnt == k - 1) {
-                newNode.next = temp.next; // Link new node to the next node
-                if (temp.next != null) {
-                    temp.next.prev = newNode; // Update prev of the next node
-                }
-                temp.next = newNode; // Link current node to the new node
-                newNode.prev = temp; // Update new node's prev to the current node
-                break;
+                // Insert the new node after the node at position k-1
+                newNode.next = temp.next;
+                if (temp.next != null) temp.next.prev = newNode;
+                temp.next = newNode;
+                newNode.prev = temp;
+                return;
             }
             temp = temp.next;
+            cnt++;
         }
     }
 
     /**
-     * Inserts a new node with the given data before the first occurrence of a node
-     * with the specified value.
-     * @param k   The value before which the new node will be inserted.
-     * @param val The data for the new node.
-     */
-    public void insertBeforeValue(int k, int val) {
-        Node newNode = new Node(val);
-
-        if (head == null) { // If the list is empty, do nothing
-            return;
-        }
-
-        if (head.data == k) { // If the value matches the head, insert at the beginning
-            newNode.next = head;
-            head.prev = newNode;
-            head = newNode;
-            return;
-        }
-
-        Node temp = head;
-
-        // Traverse the list to find the node with the specified value
-        while (temp != null) {
-            if (temp.data == k) {
-                newNode.prev = temp.prev; // Link new node to the previous node
-                newNode.next = temp;     // Link new node to the current node
-                temp.prev.next = newNode; // Update previous node's next to new node
-                temp.prev = newNode;      // Update current node's prev to new node
-                break;
-            }
-            temp = temp.next;
-        }
-    }
-
-    /**
-     * Prints the elements of the doubly linked list in order.
+     * Prints the doubly linked list from head to tail.
      */
     public void printList() {
-        if (head == null) { // If the list is empty, print a message
-            System.out.println("List is Empty");
+        if (head == null) {
+            System.out.println("List is empty");
             return;
         }
         Node currNode = head;
-        while (currNode != null) { // Traverse the list and print each node's data
+        while (currNode != null) {
             System.out.print(currNode.data + " <-> ");
             currNode = currNode.next;
         }
-        System.out.println("null"); // Mark the end of the list
+        System.out.println("null");
     }
 }
 
@@ -137,27 +132,27 @@ public class Main {
     public static void main(String[] args) {
         CustomDoublyLinkedList list = new CustomDoublyLinkedList();
 
-        // Add elements to the beginning of the list
+        // Add nodes at the beginning
         list.addFirst(1);
         list.addFirst(2);
         list.addFirst(3);
         list.addFirst(4);
         list.addFirst(5);
-        list.printList();
+        list.printList(); // Prints the list after adding nodes at the beginning
 
-        // Add elements to the end of the list
+        // Add nodes at the end
         list.addLast(98);
         list.addLast(99);
-        list.printList();
+        list.printList(); // Prints the list after adding nodes at the end
 
         System.out.println("------------------------------------------------------");
 
-        // Insert an element at a specific position
+        // Insert a node at a specific position
         list.insertByPosition(2, 99999);
-        list.printList();
+        list.printList(); // Prints the list after inserting at position 2
 
-        // Insert an element before a specific value
-        list.insertBeforeValue(99999, 888);
-        list.printList();
+        // Insert a node before the tail
+        list.insertBeforeTail(888);
+        list.printList(); // Prints the list after inserting before the tail
     }
 }

@@ -4,10 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" filepath="$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/_00 Singly LL/_00 Singly LL.iml" filepath="$PROJECT_DIR$/_00 Singly LL/_00 Singly LL.iml" />
-      <module fileurl="file://$PROJECT_DIR$/_003Size/_003Size.iml" filepath="$PROJECT_DIR$/_003Size/_003Size.iml" />
       <module fileurl="file://$PROJECT_DIR$/_01 InBuild List Method/_01 InBuild List Method.iml" filepath="$PROJECT_DIR$/_01 InBuild List Method/_01 InBuild List Method.iml" />
       <module fileurl="file://$PROJECT_DIR$/_02 LL Insertion/_02 LL Insertion.iml" filepath="$PROJECT_DIR$/_02 LL Insertion/_02 LL Insertion.iml" />
       <module fileurl="file://$PROJECT_DIR$/_03 LL Deletion/_03 LL Deletion.iml" filepath="$PROJECT_DIR$/_03 LL Deletion/_03 LL Deletion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_04 DLL Insertion/_04 DLL Insertion.iml" filepath="$PROJECT_DIR$/_04 DLL Insertion/_04 DLL Insertion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_88Size/_88Size.iml" filepath="$PROJECT_DIR$/_88Size/_88Size.iml" />
     </modules>
   </component>
 </project>
