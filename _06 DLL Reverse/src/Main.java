@@ -76,6 +76,8 @@ class CustomDoublyLinkedList {
             // Traverse further
             temp = temp.next;
         }
+
+        // no need to change head because we are changing value not nodes
     }
 
 
