@@ -145,24 +145,44 @@ class CustomDoublyLinkedList {
             System.out.println("List is empty");
             return;
         }
-        if (head.data == val) { // Delete the first node
+
+        Node kNode = head;
+        while (kNode != null ) {
+            if(kNode.data == val){
+                break;
+            }
+            kNode = kNode.next;
+        }
+
+        // If value is not found
+        if (kNode == null) {
+            System.out.println("Value is not available in the DLL");
+            return;
+        }
+
+        Node prev = kNode.prev;
+        Node front = kNode.next;
+
+        // Case: Only one element in the list
+        if (prev == null && front == null) {
+            head = null;
+            return;
+        }
+        // Case: Deleting the first node
+        else if (prev == null) {
             deleteFirst();
             return;
         }
-        Node currNode = head;
-        while (currNode != null && currNode.data != val) {
-            currNode = currNode.next;
+        // Case: Deleting the last node
+        else if (front == null) {
+            deleteLast();
+            return ;
         }
-        if (currNode == null) {
-            System.out.println("Value not found in the list");
-            return;
-        }
-        if (currNode.next != null) {
-            currNode.next.prev = currNode.prev;
-        }
-        if (currNode.prev != null) {
-            currNode.prev.next = currNode.next;
-        }
+
+        // else when prev & next are not null
+        // Case: Deleting a middle node
+        prev.next = front;
+        front.prev = prev;
     }
 }
 
