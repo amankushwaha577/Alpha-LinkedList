@@ -93,30 +93,46 @@ class CustomDoublyLinkedList {
             System.out.println("List is empty");
             return;
         }
-        if (k == 1) { // Delete the first node
-            deleteFirst();
-            return;
-        }
-        Node currNode = head;
+
+        Node kNode = head;
         int count = 0;
-        while (currNode != null ) {
+        while (kNode != null ) {
             count++;
             if(count == k){
                 break;
             }
-            currNode = currNode.next;
+            kNode = kNode.next;
         }
 
-        if (currNode == null) {
-            System.out.println("Position out of bounds");
+        // If the position k is greater than the length of the list
+        if (kNode == null) {
+            System.out.println("Position out of range");
             return;
         }
-        if (currNode.next != null) {  // tail case1
-            currNode.next.prev = currNode.prev;
+
+        Node prev = kNode.prev;
+        Node front = kNode.next;
+
+        // Case: Only one element in the list
+        if (prev == null && front == null) {
+            head = null;
+            return;
         }
-        if (currNode.prev != null) {
-            currNode.prev.next = currNode.next;
+        // Case: Deleting the first node
+        else if (prev == null) {
+            deleteFirst();
+            return;
         }
+        // Case: Deleting the last node
+        else if (front == null) {
+            deleteLast();
+            return ;
+        }
+
+        // Case: Deleting a middle node
+        prev.next = front;
+        front.prev = prev;
+
     }
 
     /**
