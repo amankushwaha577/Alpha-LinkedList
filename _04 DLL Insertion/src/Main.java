@@ -98,7 +98,7 @@ class CustomDoublyLinkedList {
             }
             temp = temp.next;
         }
-        // Insert the new node after the node at position k-1
+        // Insert the new node before kth node
         newNode.next = temp.next;
         if (temp.next != null) temp.next.prev = newNode;
         temp.next = newNode;
