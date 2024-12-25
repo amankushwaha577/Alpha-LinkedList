@@ -78,6 +78,50 @@ class CustomDoublyLinkedList {
         }
     }
 
+
+    public void reverseDLL2() { // Time : O(N)- 1 Pass Solution Space : 0(1)
+        // Check if the list is empty
+        // or has only one node
+        if (head == null || head.next == null) {
+            // No change is needed;
+            // return the current head
+            return;
+        }
+
+        // Initialize a pointer to the previous node
+        Node prev = null;
+
+        // Initialize a pointer to the current node
+        Node current = head;
+
+        // Traverse the linked list
+        while (current != null) {
+
+            // Store a reference to the previous node
+            prev = current.prev;
+
+            // Swap the previous and
+            // next pointers
+            current.prev = current.next;
+
+            // This step reverses the links
+            current.next = prev;
+
+            // Move to the next node
+            // in the orignal list
+
+            current = current.prev;
+        }
+        // At the last iteration of the loop,
+        // prev = current.prev;
+        // here, prev points to the second-to-last node of the original list. (which becomes the second node of the reversed list).
+
+        head = prev.prev;
+        //Therefore, setting head = prev.prev; ensures that head now points to the correct first node of the reversed doubly linked list.
+
+
+    }
+
 }
 
 public class Main {
@@ -91,6 +135,9 @@ public class Main {
         System.out.println("-------------------------------------------");
 
         list.reverseDLL();
+        list.printList();
+
+        list.reverseDLL2();
         list.printList();
     }
 }
