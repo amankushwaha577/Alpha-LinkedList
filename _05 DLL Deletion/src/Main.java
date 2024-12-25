@@ -98,16 +98,20 @@ class CustomDoublyLinkedList {
             return;
         }
         Node currNode = head;
-        int count = 1;
-        while (currNode != null && count < k) {
-            currNode = currNode.next;
+        int count = 0;
+        while (currNode != null ) {
             count++;
+            if(count == k){
+                break;
+            }
+            currNode = currNode.next;
         }
+
         if (currNode == null) {
             System.out.println("Position out of bounds");
             return;
         }
-        if (currNode.next != null) {
+        if (currNode.next != null) {  // tail case1
             currNode.next.prev = currNode.prev;
         }
         if (currNode.prev != null) {
