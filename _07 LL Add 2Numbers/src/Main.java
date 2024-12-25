@@ -45,8 +45,10 @@ class CustomLinkedList {
     public CustomLinkedList addTwoNumbers(CustomLinkedList l1, CustomLinkedList l2) {
         Node p1 = l1.head; // Pointer for the first list
         Node p2 = l2.head; // Pointer for the second list
+
         Node dummy = new Node(0); // Dummy node to simplify list creation
         Node current = dummy;     // Pointer to track the result list
+
         int carry = 0;            // To store the carry value
 
         // Process both linked lists until one of them is fully traversed
@@ -75,7 +77,7 @@ class CustomLinkedList {
 
         // Create a result list and set its head to the dummy's next
         CustomLinkedList result = new CustomLinkedList();
-        result.head = dummy.next;
+        result.head = dummy.next; // Node(0); removed now
 
         return result; // Return the resultant list
     }
