@@ -82,28 +82,34 @@ class CustomDoublyLinkedList {
     public void insertByPosition(int k, int val) {
         Node newNode = new Node(val);
 
-        if (k == 1) { // If position is 1, insert at the beginning
-            addFirst(val); // Use the existing addFirst method
+        // K = 1 means node has to be insert before the head
+        if (k == 1) {
+            addFirst(val);
             return;
         }
 
-        int cnt = 0;
+        int cnt = 0;  // count so that the Kth element can be reached
         Node temp = head;
 
-        // Traverse the list to find the node at position k-1
         while (temp != null) {
             cnt++;
+            // On reaching the Kth position, break out of the loop
             if (cnt == k) {
                 break;
             }
-            temp = temp.next;
+            temp = temp.next;  // keep moving temp forward till count != K
         }
-        // Insert the new node before kth node
-        newNode.next = temp.next;
-        if (temp.next != null) temp.next.prev = newNode;
-        temp.next = newNode;
-        newNode.prev = temp;
-        return;
+
+        // take the node which is before the Kth node
+        Node prev = temp.prev;
+
+        //join the new node in between prev and temp
+        prev.next = newNode;
+        temp.prev = newNode;
+
+        // Set newNode's pointers to prev and temp
+        newNode.next = temp;
+        newNode.prev = prev;
 
     }
 
