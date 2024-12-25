@@ -42,6 +42,7 @@ class CustomLinkedList {
     }
 
     // Method to add two linked lists and return the result as a new list
+    // T - o(m,n) | S - o(m,n)
     public CustomLinkedList addTwoNumbers(CustomLinkedList l1, CustomLinkedList l2) {
         Node p1 = l1.head; // Pointer for the first list
         Node p2 = l2.head; // Pointer for the second list
