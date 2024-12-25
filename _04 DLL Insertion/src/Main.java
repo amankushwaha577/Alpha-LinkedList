@@ -113,7 +113,11 @@ class CustomDoublyLinkedList {
 
     }
 
-
+    /**
+     * Inserts a new node with the given value before a node with a specific value.
+     * @param k the value of the node before which the new node is to be inserted.
+     * @param val the value to be inserted.
+     */
     public void insertBeforeGivenValue(int k, int val) {
         Node newNode = new Node(val);
 
