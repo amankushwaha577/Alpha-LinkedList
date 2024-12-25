@@ -129,6 +129,7 @@ class CustomDoublyLinkedList {
             return ;
         }
 
+        // else when prev & next are not null
         // Case: Deleting a middle node
         prev.next = front;
         front.prev = prev;
