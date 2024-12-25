@@ -87,15 +87,16 @@ public class Main {
     public static void main(String[] args) {
         // Create the first linked list
         CustomLinkedList list1 = new CustomLinkedList();
-        list1.addLast(2);
-        list1.addLast(4);
         list1.addLast(3);
+        list1.addLast(8);
+        list1.addLast(7);
 
         // Create the second linked list
         CustomLinkedList list2 = new CustomLinkedList();
         list2.addLast(5);
-        list2.addLast(6);
+        list2.addLast(2);
         list2.addLast(4);
+        list2.addLast(9);
 
         // Print the first list
         System.out.println("List 1:");
