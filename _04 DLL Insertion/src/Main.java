@@ -52,7 +52,10 @@ class CustomDoublyLinkedList {
      * @param val the value to be inserted before the tail.
      */
     public void insertBeforeTail(int val) {
-        // Edge case: If the list has only one element
+        // Create a new node with the given value
+        Node newNode = new Node(val);
+
+        // Edge case: If the list is empty /  has only one element
         if (head == null || head.next == null) {
             addFirst(val); // Use the existing addFirst method for single-element or empty list
             return;
@@ -63,9 +66,6 @@ class CustomDoublyLinkedList {
         while (tail.next != null) {
             tail = tail.next;
         }
-
-        // Create a new node with the given value
-        Node newNode = new Node(val);
 
         // Update pointers to insert the new node before the tail
         newNode.next = tail;
