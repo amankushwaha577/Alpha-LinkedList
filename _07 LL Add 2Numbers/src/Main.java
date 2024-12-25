@@ -46,7 +46,7 @@ class CustomLinkedList {
         Node p1 = l1.head; // Pointer for the first list
         Node p2 = l2.head; // Pointer for the second list
 
-        Node dummy = new Node(0); // Dummy node to simplify list creation
+        Node dummy = new Node(0); // Dummy node to simplify list creation ( can put any value in it )
         Node current = dummy;     // Pointer to track the result list
 
         int carry = 0;            // To store the carry value
@@ -94,7 +94,7 @@ public class Main {
         // Create the second linked list
         CustomLinkedList list2 = new CustomLinkedList();
         list2.addLast(5);
-        list2.addLast(2);
+        list2.addLast(4);
         list2.addLast(4);
         list2.addLast(9);
 
