@@ -113,6 +113,54 @@ class CustomDoublyLinkedList {
 
     }
 
+
+    public void insertBeforeGivenValue(int k, int val) {
+        Node newNode = new Node(val);
+
+        // If the list is empty, we cannot insert
+        if (head == null) {
+            System.out.println("List is empty. Cannot insert before " + k);
+            return;
+        }
+
+        Node temp = head;
+
+        while (temp != null) {
+            // On reaching the data=k position, break out of the loop
+            if (temp.data == k) {
+                break;
+            }
+            temp = temp.next;  // keep moving temp forward till temp.data != k
+        }
+
+        // If k is not found
+        if (temp == null) {
+            System.out.println("Value " + k + " not found in the list.");
+            return;
+        }
+
+        // If inserting before the head node
+        if (temp == head) {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+            return;
+        }
+
+        // Normal case: inserting before a middle or last node =>
+        // take the node which is before the Kth node
+        Node prev = temp.prev;
+
+        // join the new node in between prev and temp
+        prev.next = newNode;
+        temp.prev = newNode;
+
+        // Set newNode's pointers to prev and temp
+        newNode.next = temp;
+        newNode.prev = prev;
+
+    }
+
     /**
      * Prints the doubly linked list from head to tail.
      */
@@ -156,5 +204,10 @@ public class Main {
         // Insert a node before the tail
         list.insertBeforeTail(888);
         list.printList(); // Prints the list after inserting before the tail
+
+        System.out.println("------------------------------------------------------");
+
+        list.insertBeforeGivenValue(1,1111);
+        list.printList();
     }
 }
