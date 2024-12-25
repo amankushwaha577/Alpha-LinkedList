@@ -12,12 +12,6 @@ class CustomDoublyLinkedList {
             this.next = null;
             this.prev = null;
         }
-
-        public Node(int data, Node next, Node prev) {
-            this.data = data;
-            this.next = next;
-            this.prev = prev;
-        }
     }
 
     /**
@@ -93,22 +87,24 @@ class CustomDoublyLinkedList {
             return;
         }
 
-        int cnt = 1;
+        int cnt = 0;
         Node temp = head;
 
         // Traverse the list to find the node at position k-1
         while (temp != null) {
-            if (cnt == k - 1) {
-                // Insert the new node after the node at position k-1
-                newNode.next = temp.next;
-                if (temp.next != null) temp.next.prev = newNode;
-                temp.next = newNode;
-                newNode.prev = temp;
-                return;
+            cnt++;
+            if (cnt == k) {
+                break;
             }
             temp = temp.next;
-            cnt++;
         }
+        // Insert the new node after the node at position k-1
+        newNode.next = temp.next;
+        if (temp.next != null) temp.next.prev = newNode;
+        temp.next = newNode;
+        newNode.prev = temp;
+        return;
+
     }
 
     /**
