@@ -63,6 +63,28 @@ class CustomLL {
     }
 }
 
+//  if only 5 nodes there than ?
+//  odd will be last node
+//  1 -> 2 -> 3 -> 4 -> 5 -> null
+//-------------------------------
+
+// A.Initially, odd = 1 and even = 2.
+// even != null and even.next != null are true,
+// so we proceed to the first iteration.
+
+// B.Now, odd = 3 and even = 4.
+// even != null and even.next != null are true,
+// so we proceed to the first iteration.
+
+// C.Now, odd = 5 and even = null.
+// even != null and even.next != null are false,
+// now, since even == null, the loop terminates.
+
+//while (even != null && even.next != null){ }
+// if List length is odd => even == null
+// if List length is even => even.next == null
+
+
 public class Optimal {
     public static void main(String[] args) {
         // Create the linked list
