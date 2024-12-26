@@ -43,7 +43,7 @@ class CustomLL {
     }
 
     // Method to sort the linked list containing 0's, 1's, and 2's using the counter method
-    public void sortList() {
+    public void sortList() { // T:o(2n) 2pass , s:o(1)
         // If the list is empty or contains only one node, there's no need to sort it
         if (head == null || head.next == null) return;
 
