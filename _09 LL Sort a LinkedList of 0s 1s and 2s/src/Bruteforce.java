@@ -1,3 +1,4 @@
+// Custom Linked List class to represent a singly linked list with various operations
 class CustomLL {
     Node head; // Head of the linked list
 
@@ -43,40 +44,62 @@ class CustomLL {
 
     // Method to sort the linked list containing 0's, 1's, and 2's using the counter method
     public void sortList() {
-        if (head == null || head.next == null) return; // Empty or single-node list, no need to sort
+        // If the list is empty or contains only one node, there's no need to sort it
+        if (head == null || head.next == null) return;
 
-        // Step 1: Count the occurrences of 0's, 1's, and 2's
+        // Step 1: Count the occurrences of 0's, 1's, and 2's in the linked list
         int count0 = 0, count1 = 0, count2 = 0;
         Node current = head;
+
+        // Traverse through the linked list to count the number of 0's, 1's, and 2's
         while (current != null) {
-            if (current.data == 0) count0++;
-            else if (current.data == 1) count1++;
-            else if (current.data == 2) count2++;
-            current = current.next;
+            // If the current node's data is 0, increment the count for 0
+            if (current.data == 0) {
+                count0++;
+            }
+            // If the current node's data is 1, increment the count for 1
+            else if (current.data == 1) {
+                count1++;
+            }
+            // If the current node's data is 2, increment the count for 2
+            else if (current.data == 2) {
+                count2++;
+            }
+            current = current.next; // Move to the next node in the list
         }
 
-        // Step 2: Update the list based on the counts in a single loop
-        current = head;
+        // Step 2: Refill the list with the counted occurrences of 0's, 1's, and 2's
+        current = head; // Start at the head of the list again
+
+        // Traverse through the list and update the node values based on the counts
         while (current != null) {
+            // If there are still 0's to place, set the current node's data to 0
             if (count0 > 0) {
                 current.data = 0;
-                count0--;
-            } else if (count1 > 0) {
-                current.data = 1;
-                count1--;
-            } else if (count2 > 0) {
-                current.data = 2;
-                count2--;
+                count0--; // Decrement the count of 0's
             }
-            current = current.next;
+            // If there are still 1's to place, set the current node's data to 1
+            else if (count1 > 0) {
+                current.data = 1;
+                count1--; // Decrement the count of 1's
+            }
+            // If there are still 2's to place, set the current node's data to 2
+            else if (count2 > 0) {
+                current.data = 2;
+                count2--; // Decrement the count of 2's
+            }
+            current = current.next; // Move to the next node in the list
         }
     }
 }
 
+// Main class to test the Custom Linked List class and its methods
 public class Bruteforce {
     public static void main(String[] args) {
         // Create the linked list
         CustomLL list = new CustomLL();
+
+        // Adding sample nodes (0's, 1's, and 2's) to the linked list
         list.addLast(0);
         list.addLast(1);
         list.addLast(2);
@@ -84,10 +107,11 @@ public class Bruteforce {
         list.addLast(0);
         list.addLast(2);
 
+        // Print the original list
         System.out.println("Original List:");
         list.printList();
 
-        // Sort the linked list
+        // Sort the linked list using the sortList method
         list.sortList();
 
         // Print the sorted list
