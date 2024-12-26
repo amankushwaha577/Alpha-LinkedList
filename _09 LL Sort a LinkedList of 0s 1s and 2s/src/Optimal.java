@@ -75,6 +75,8 @@ class CustomL {
         // Step 3: Now, connect the three lists:
         // The zeroTail should point to the 1's list, and the oneTail should point to the 2's list.
         zeroTail.next = oneHead.next!=null ? oneHead.next : twoHead.next; // Connect the 0's list to the 1's list
+        // if twoHead.next is also null than also no issue. end
+
         oneTail.next = twoHead.next;  // Connect the 1's list to the 2's list
         twoTail.next = null;          // The last node of the 2's list should point to null
 
