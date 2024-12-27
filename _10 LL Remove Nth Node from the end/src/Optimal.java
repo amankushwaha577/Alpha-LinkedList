@@ -55,7 +55,7 @@
 
         // Move the fast pointer N steps ahead
         for (int i = 0; i < N; i++) {
-            if (fast == null) {
+            if (fast == null) { // if fast reaches null it means LL is over : and N is out of range
                 return; // If N is greater than the length of the list, return without deletion
             }
             fast = fast.next;
@@ -69,10 +69,16 @@
         }
 
         // Move both pointers until fast reaches the end
-        while (fast.next != null) {
+        while (fast.next != null) { // We stop the loop one step before fast becomes null because once fast points to the last node, the slow pointer will be at the node just before the one we want to delete.
             fast = fast.next;
             slow = slow.next;
         }
+        // The reason for using while (fast.next != null) is to ensure that the fast pointer reaches the last node of the linked list while the slow pointer follows behind it
+        // the goal is to find the node just before the Nth node from the end.
+        // We already moved the fast pointer N steps ahead.
+        // By moving both the fast and slow pointers at the same time, we ensure that when the fast pointer reaches the end of the list, the slow pointer will be pointing to the node just before the target node to be deleted.
+
+        // If fast is N steps ahead, when fast reaches the end of the list, slow will be pointing to the node just before the Nth node from the end. This allows us to delete the Nth node from the end.
 
         // Delete the Nth node from the end
         slow.next = slow.next.next;
