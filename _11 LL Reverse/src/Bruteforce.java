@@ -44,7 +44,7 @@ class CustomLL {
     }
 
     // Method to reverse the linked list
-    public void reverseLinkedList() {
+    public void reverseLinkedList() { // T:o(2N)  s:o(N)
         // Create a temporary pointer to traverse the linked list
         Node temp = head;
 
