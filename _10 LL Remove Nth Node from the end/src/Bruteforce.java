@@ -47,7 +47,7 @@ class CustomLL {
      *
      * @param N The position (from the end) of the node to be deleted.
      */
-    public void deleteNthNodeFromEnd(int N) {
+    public void deleteNthNodeFromEnd(int N) {  // T:o(len) + o(len- N) S:o(1)
         // Special case: If the list is empty, there's nothing to delete
         if (head == null) {
             System.out.println("The list is empty, nothing to delete.");
