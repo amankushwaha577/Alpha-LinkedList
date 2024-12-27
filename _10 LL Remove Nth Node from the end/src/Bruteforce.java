@@ -42,53 +42,45 @@ class CustomLL {
         System.out.println("null"); // End of the list
     }
 
-    // Method to sort the linked list containing 0's, 1's, and 2's using the counter method
-    public void sortList() { // T:o(2n) 2pass , s:o(1)
-        // If the list is empty or contains only one node, there's no need to sort it
-        if (head == null || head.next == null) return;
-
-        // Step 1: Count the occurrences of 0's, 1's, and 2's in the linked list
-        int count0 = 0, count1 = 0, count2 = 0;
-        Node current = head;
-
-        // Traverse through the linked list to count the number of 0's, 1's, and 2's
-        while (current != null) {
-            // If the current node's data is 0, increment the count for 0
-            if (current.data == 0) {
-                count0++;
-            }
-            // If the current node's data is 1, increment the count for 1
-            else if (current.data == 1) {
-                count1++;
-            }
-            // If the current node's data is 2, increment the count for 2
-            else if (current.data == 2) {
-                count2++;
-            }
-            current = current.next; // Move to the next node in the list
+    /**
+     * Method to delete the Nth node from the end of the linked list.
+     *
+     * @param N The position (from the end) of the node to be deleted.
+     */
+    public void deleteNthNodeFromEnd(int N) {
+        // Special case: If the list is empty, there's nothing to delete
+        if (head == null) {
+            System.out.println("The list is empty, nothing to delete.");
+            return;
         }
 
-        // Step 2: Refill the list with the counted occurrences of 0's, 1's, and 2's
-        current = head; // Start at the head of the list again
+        // Step 1: Count the total number of nodes in the list
+        int totalNodes = 0;
+        Node temp = head;
 
-        // Traverse through the list and update the node values based on the counts
-        while (current != null) {
-            // If there are still 0's to place, set the current node's data to 0
-            if (count0 > 0) {
-                current.data = 0;
-                count0--; // Decrement the count of 0's
-            }
-            // If there are still 1's to place, set the current node's data to 1
-            else if (count1 > 0) {
-                current.data = 1;
-                count1--; // Decrement the count of 1's
-            }
-            // If there are still 2's to place, set the current node's data to 2
-            else if (count2 > 0) {
-                current.data = 2;
-                count2--; // Decrement the count of 2's
-            }
-            current = current.next; // Move to the next node in the list
+        while (temp != null) { // Traverse the list to calculate its length
+            totalNodes++;
+            temp = temp.next;
+        }
+
+        // Step 2: Handle the case where the head node itself needs to be deleted
+        if (totalNodes == N) {
+            head = head.next; // Move the head pointer to the next node
+            return;
+        }
+
+        // Step 3: Calculate the position of the node to be deleted from the start
+        int positionFromStart = totalNodes - N;
+        temp = head;
+
+        // Traverse to the node just before the target node
+        for (int i = 1; i < positionFromStart; i++) {
+            temp = temp.next;
+        }
+
+        // Step 4: Update the pointers to skip the target node
+        if (temp != null && temp.next != null) {
+            temp.next = temp.next.next; // Bypass the target node
         }
     }
 }
@@ -99,23 +91,20 @@ public class Bruteforce {
         // Create the linked list
         CustomLL list = new CustomLL();
 
-        // Adding sample nodes (0's, 1's, and 2's) to the linked list
-        list.addLast(0);
-        list.addLast(1);
-        list.addLast(2);
-        list.addLast(1);
-        list.addLast(0);
-        list.addLast(2);
+        // Adding sample nodes to the linked list
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addLast(40);
+        list.addLast(50);
 
         // Print the original list
         System.out.println("Original List:");
         list.printList();
 
-        // Sort the linked list using the sortList method
-        list.sortList();
-
-        // Print the sorted list
-        System.out.println("Sorted List:");
+        // Delete the 2nd node from the end
+        list.deleteNthNodeFromEnd(2); // Deletes the 2nd node from the end
+        System.out.println("After Deleting 2nd Node from End:");
         list.printList();
     }
 }
