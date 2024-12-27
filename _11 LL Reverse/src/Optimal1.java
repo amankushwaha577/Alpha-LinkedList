@@ -42,7 +42,7 @@ class CustomLL5 {
     }
 
     // Method to reverse the linked list using iteration (reversing the next pointers)
-    public void reverseLinkedListUsingIteration() {
+    public void reverseLinkedListUsingIteration() { // T:o(N) s:(1)
         Node temp = head;  // Initialize 'temp' at the head of the linked list
         Node prev = null;  // Initialize pointer 'prev' to null
 
