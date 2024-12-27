@@ -43,7 +43,7 @@
     }
 
     // Method to delete the Nth node from the end of the linked list
-    public void deleteNthNodeFromEnd(int N) {
+    public void deleteNthNodeFromEnd(int N) { // T:o(length) = fast is moving total length | s:o(1)
         // Edge case: if the list is empty or N is non-positive
         if (head == null || N <= 0) {
             return;
