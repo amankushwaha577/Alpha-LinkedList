@@ -70,13 +70,27 @@ class CustomLL {
         }
 
         // Step 3: Calculate the position of the node to be deleted from the start
-        int positionFromStart = totalNodes - N;
+        int res = totalNodes - N; // 5-2 => 3, 3 is the node that is left of deletable node
         temp = head;
 
-        // Traverse to the node just before the target node
-        for (int i = 1; i < positionFromStart; i++) {
+        // Traverse to the node just before the one to delete
+        while (temp != null) {
+            res--;
+            if (res == 0) {
+                break; // when we reach 3rd node stop
+            }
             temp = temp.next;
         }
+
+        // The temp pointer is expected to point to the node just before the target node.
+        // If temp is null (unexpectedly reaching the end of the list), the code trying to access temp.next would throw a NullPointerException.
+
+        // temp.next refers to the node to be deleted.
+        // If temp.next is null (e.g., if N is invalid and larger than the length of the list), attempting to modify temp.next.next would also throw a NullPointerException.
+
+        // You can safely remove this check if:
+        // -------------------------------------
+        // You guarantee valid input: The value of N is always within the range of the list length.
 
         // Step 4: Update the pointers to skip the target node
         if (temp != null && temp.next != null) {
