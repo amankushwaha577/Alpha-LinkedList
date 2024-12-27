@@ -44,7 +44,7 @@ class CustomLL {
     }
 
     // Method to reverse the linked list
-    public static Node reverseLinkedList(Node head) {
+    public void reverseLinkedList() {
         // Create a temporary pointer to traverse the linked list
         Node temp = head;
 
@@ -65,9 +65,6 @@ class CustomLL {
             temp.data = stack.pop();  // Set the current node's data to the value at the top of the stack
             temp = temp.next;         // Move to the next node in the linked list
         }
-
-        // Return the new head of the reversed linked list
-        return head;
     }
 }
 
@@ -89,7 +86,7 @@ public class Bruteforce {
         list.printList();
 
         // Reverse the linked list
-        list.head = CustomLL.reverseLinkedList(list.head); // Update head after reversing
+        list.reverseLinkedList(); // Directly call the method on the list object
 
         // Print the reversed list
         System.out.println("Reversed List:");
