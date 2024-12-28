@@ -54,6 +54,7 @@ class CustomLL6 {
         // If the current node is null (empty list) or the last node (reversal completed),
         // simply return the current node as the new head of the reversed list.
         if (current == null || current.next == null) {
+            // make last node as new head here
             return current; // Return the last node as the new head of the reversed list
         }
 
