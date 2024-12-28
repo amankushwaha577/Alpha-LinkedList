@@ -48,22 +48,33 @@ class CustomLL6 {
     }
 
     // Recursive method to reverse the linked list
+    // Recursive method to reverse the linked list
     private Node reverseRecursive(Node current) {
-        // Base case: If the list is empty or we've reached the last node, return it
+        // Base case:
+        // If the current node is null (empty list) or the last node (reversal completed),
+        // simply return the current node as the new head of the reversed list.
         if (current == null || current.next == null) {
-            return current;
+            return current; // Return the last node as the new head of the reversed list
         }
 
-        // Recursively reverse the rest of the list
-        Node newHead = reverseRecursive(current.next);
+        // Recursive step:
+        // Reverse the rest of the linked list starting from the next node.
+        Node newHead = reverseRecursive(current.next); // Recurse to find the new head
 
-        // Reverse the current node's pointer
-        current.next.next = current;
-        current.next = null;
+        // Adjust pointers to reverse the current node's link:
+        // - 'current.next' points to the next node in the original list.
+        // - 'current.next.next' is now set to point back to 'current', reversing the link.
+        current.next.next = current; // Make the next node point back to the current node
 
-        // Return the new head of the reversed list
+        // Break the forward link of the current node to avoid cycles in the reversed list:
+        // This ensures that the current node no longer points to the next node.
+        current.next = null; // Disconnect the original forward link
+
+        // Return the new head of the reversed list:
+        // The recursive calls eventually propagate the new head back to the caller.
         return newHead;
     }
+
 }
 
 // Main class to test the Custom Linked List class and its methods
