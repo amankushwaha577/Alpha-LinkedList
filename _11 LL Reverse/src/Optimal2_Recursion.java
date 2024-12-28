@@ -49,7 +49,7 @@ class CustomLL6 {
 
     // Recursive method to reverse the linked list
     // Recursive method to reverse the linked list
-    private Node reverseRecursive(Node current) {
+    private Node reverseRecursive(Node current) { // T:o(n) s:o(n)
         // Base case:
         // If the current node is null (empty list) or the last node (reversal completed),
         // simply return the current node as the new head of the reversed list.
