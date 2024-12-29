@@ -86,10 +86,9 @@ class CustomLL {
         // If carry is left, we need to add a new node
         if (carry > 0) {
             Node newNode = new Node(carry); // Create a new node for the carry
-//            current.next = newNode; // Add it to the end of the list
 
-            newNode.next = head;
-            head = newNode;
+            newNode.next = head; // Add it to the front of the list
+            head = newNode; // make "newNode" as head
         }
 
     }
