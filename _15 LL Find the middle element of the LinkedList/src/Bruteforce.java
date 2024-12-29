@@ -65,7 +65,7 @@
         temp = head;
 
         while (temp != null) {
-            mid = mid - 1;
+            mid--;
 
             // Check if the middle
             // position is reached.
