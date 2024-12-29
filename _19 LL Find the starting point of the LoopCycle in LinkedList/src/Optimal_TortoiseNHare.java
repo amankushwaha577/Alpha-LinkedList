@@ -81,7 +81,7 @@ class CustomLL2 {
     }
 
     // Method to detect and return the starting node of the cycle
-    public Node startNodeOfCycle() {
+    public Node startNodeOfCycle() {  // T: O(N)+O(N)=O(N) || S:0(1)
         // Initialize slow and fast pointers to the head of the list
         Node slow = head;
         Node fast = head;
