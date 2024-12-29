@@ -56,7 +56,7 @@ class CustomLL2 {
     }
 
     // Method to detect a loop in the linked list using Tortoise and Hare algorithm
-    public boolean detectLoop() {
+    public boolean detectLoop() { // T:0(N) s:0(1)
         // Step 1: Initialize two pointers, slow and fast, at the head
         Node slow = head;
         Node fast = head;
