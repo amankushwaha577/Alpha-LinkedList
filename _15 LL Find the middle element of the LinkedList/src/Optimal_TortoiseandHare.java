@@ -56,7 +56,7 @@
             slow = slow.next;        // Move slow pointer by one step
             fast = fast.next.next;   // Move fast pointer by two steps
 
-            // Explanation:
+            // Explanation: In case of odd list fast will always reach last node || in case of even list it will never reach last node it will always reach null ie. end point.
             // The loop stops when:
             // 1. **Odd-length list**: When fast reaches the last node (fast.next == null),
             //    slow will be at the exact middle node.
