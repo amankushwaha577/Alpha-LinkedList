@@ -100,18 +100,24 @@ class CustomLL1 {
 
         // Calculate the index of the middle node
         int mid = count / 2;  // Middle node index (use the left middle if the list has even nodes)
+        // In findMiddle  => if count = 5 => (5/2)+1 = 2+1 =3 Great || count = 6 => (6/2)+1 = 3+1 =4 Great ( Choose Right Middle )
+        // In deleteMiddle=> if count = 5 => (5/2)   = 2   =2 Great || count = 6 => (6/2)   = 3   =3 Great ( Choose left Middle )
+
         temp = head;
 
         // Loop to find the node just before the middle node
         while (temp != null) {
-            // When we reach the node just before the middle node
-            if (mid == 1) {
+            mid--;  // Decrement mid
+
+            // Check if we have reached the node just before the middle node
+            if (mid == 0) {
                 // Skip the middle node by changing the pointer of the previous node
                 temp.next = temp.next.next;
-                break;
+                break; // Exit the loop after deleting the middle node
             }
-            mid--;  // Move towards the middle
-            temp = temp.next;  // Move to the next node
+
+            // Move temp to the next node
+            temp = temp.next;
         }
     }
 }
