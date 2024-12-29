@@ -42,7 +42,7 @@ class CustomLL2 {
     }
 
     // Method to add 1 to the number represented by the linked list using backtracking
-    public void addOne() {
+    public void addOne() {  // T:0(N) s:0(N)
         // Start recursive backtracking from the head node
         if (addOneRecursive(head) == 1) {
             // If carry is left after adding 1 to the most significant digit
