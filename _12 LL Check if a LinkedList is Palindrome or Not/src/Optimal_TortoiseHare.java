@@ -74,6 +74,8 @@ class CustomLL2 {
             fast = fast.next.next; // Move fast pointer forward by two nodes
         }
 
+        System.out.println("Middle Node " + slow.data); // For rNd we are in middle
+
         // Step 3: Reverse the second half of the list // 0(n/2) => reversing only 2nd half
         Node secondHalf = reverse(slow); // Reverse the list starting from the middle
         Node firstHalf = head;          // Keep a pointer to the first half
@@ -85,6 +87,10 @@ class CustomLL2 {
         boolean isPalindrome = true; // Assume the list is a palindrome initially
 
         while (secondHalf != null) { // 0(n/2)=> traversing only 2nd half
+            System.out.println(firstHalf.data+" "+ secondHalf.data);
+            // For rNd : comparing 1st half & reversed 2nd half => What we got => In odd list middle node will be used in comparison in both reveres 2nd half + 1st half
+            // 5 elements there => 2nd list stated from 3, so when 2nd list will be traverse because of 3 node in this 3 node of 1st list will be traverse.
+
             if (firstHalf.data != secondHalf.data) {
                 // If any corresponding values differ, the list is not a palindrome
                 isPalindrome = false;
