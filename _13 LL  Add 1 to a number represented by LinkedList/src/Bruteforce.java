@@ -61,6 +61,7 @@ class CustomLL {
         while (current != null) {
             int sum = current.data + carry; // Add carry to the current digit
             if(sum < 10){
+                current.data = sum;
                 carry = 0;  // If carry is 0, no need to continue the loop
                 break; // Exit the loop early if no carry remains
             }else{
@@ -85,10 +86,10 @@ class CustomLL {
         // If carry is left, we need to add a new node
         if (carry > 0) {
             Node newNode = new Node(carry); // Create a new node for the carry
-            current.next = newNode; // Add it to the end of the list
-//
-//            newNode.next = head;
-//            head = newNode;
+//            current.next = newNode; // Add it to the end of the list
+
+            newNode.next = head;
+            head = newNode;
         }
 
     }
@@ -114,7 +115,7 @@ public class Bruteforce {
         CustomLL list = new CustomLL();
 
         // Adding sample nodes to represent a number (e.g., 1 -> 2 -> 3, which represents 123)
-        list.addLast(0);
+        list.addLast(9);
         list.addLast(9);
         list.addLast(9);
 
