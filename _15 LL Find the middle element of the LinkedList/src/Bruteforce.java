@@ -42,7 +42,7 @@
     }
 
     // Function to find the middle node of a linked list
-    static Node findMiddle(Node head) {
+    static Node findMiddle(Node head) { // T:0(N1) for length check + 0(N/2) for traverse up to mid || S:0(1)
         // If the list is empty or has
         // only one element, return the head as
         // it's the middle.
