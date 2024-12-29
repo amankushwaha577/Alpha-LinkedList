@@ -42,7 +42,7 @@
     }
 
     // Function to find the middle node of a linked list using slow and fast pointers
-    public Node findMiddle() { // T: O(N) | S: O(1)
+    public Node findMiddle() { // T: O(N/2) | S: O(1)
         // If the list is empty, return null
         if (head == null) {
             return null;

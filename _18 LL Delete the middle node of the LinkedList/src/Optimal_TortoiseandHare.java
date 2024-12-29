@@ -42,7 +42,7 @@ class CustomLL2 {
     }
 
     // Function to find the middle node of a linked list using slow and fast pointers
-    public Node findMiddle() { // T: O(N) | S: O(1)
+    public Node findMiddle() { // T: O(N/2) | S: O(1)
         // If the list is empty, return null
         if (head == null) {
             return null;
@@ -69,7 +69,7 @@ class CustomLL2 {
     }
 
     // Function to delete the middle node of the linked list using slow and fast pointers
-    public void deleteMiddle() { // T: O(N) | S: O(1)
+    public void deleteMiddle() { // T: O(N/2) | S: O(1)
         /* If the list is empty or has only one node,
            return null as there is no middle node to delete */
         if (head == null || head.next == null) {
