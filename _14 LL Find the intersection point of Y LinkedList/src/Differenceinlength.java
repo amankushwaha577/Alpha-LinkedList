@@ -42,7 +42,7 @@ class CustomLL3 {
     }
 
     // Utility function to calculate the length difference between two linked lists
-    static int getDifference(Node head1, Node head2) {
+    static int getDifference(Node head1, Node head2) { // T: 0(N1 +N2)
         int len1 = 0, len2 = 0;
 
         // Calculate the length of the first linked list
@@ -61,12 +61,14 @@ class CustomLL3 {
     }
 
     // Utility function to check for intersection between two linked lists
-    static Node intersectionPresent(Node head1, Node head2) {
+    static Node intersectionPresent(Node head1, Node head2) { // T:  0(N1 +N2) + 0(N1-N2) + 0(N2) => 0(2N1 + N2)  | S: 0(1)
         // Step 1: Calculate the length difference between the two linked lists
         int diff = getDifference(head1, head2); // The difference in lengths is computed using getDifference()
+        // if diff>0 => l1 is bigger
+        // if diff<0 => l2 is bigger
 
         // Step 2: Align the starting points of the two linked lists
-        if (diff > 0) {
+        if (diff > 0) { // T : 0(N1-N2) Assuming L1 is bigger
             // If the first list is longer, move its pointer ahead by 'diff' nodes
             // This ensures both lists start at the same relative position
             // for further comparison.
@@ -84,7 +86,7 @@ class CustomLL3 {
         }
 
         // Step 3: Traverse both linked lists simultaneously
-        while (head1 != null && head2 != null) {
+        while (head1 != null && head2 != null) {  // T: 0(N2), We moved 'diff' movements already for L1 if L1 is bigger so now rest movements will be size of L2 (which is small list)
             // Check if the current nodes of both lists are the same
             if (head1 == head2) {
                 // Intersection found, return the intersecting node
