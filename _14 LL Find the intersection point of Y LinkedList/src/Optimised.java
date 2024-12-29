@@ -44,39 +44,40 @@ class CustomLL4 {
     }
 
     // Utility function to check presence of intersection between two linked lists
-    static Node intersectionPresent(Node head1, Node head2) { // T:0(N1+N2) // any one pointer: suppose d1 pointer can traverse both lists if it reaches null of its list List1 than it will traverse List2 ( We are not doing 2(N1+N2) because d2 is also moving simultaneously with d1 )  || S: 0(1)
+    static Node intersectionPresent(Node head1, Node head2) { // T:0(N1+N2) // any one pointer: suppose temp1 pointer can traverse both lists if it reaches null of its list List1 than it will traverse List2 ( We are not doing 2(N1+N2) because temp2 is also moving simultaneously with temp1 ) || S: 0(1)
         // Check if either list is null
         if (head1 == null || head2 == null) {
             return null; // If either list is null, there's no intersection
         }
-        Node d1 = head1;
-        Node d2 = head2;
+        Node temp1 = head1;
+        Node temp2 = head2;
 
         // Traverse both lists simultaneously
-        while (d1 != d2) {
-            // Check if d1 is null
-            if (d1 == null) {
-                // If d1 is reach null, now restart from head2
-                d1 = head2;
+        while (temp1 != temp2) {
+            // Check if temp1 is null
+            if (temp1 == null) {
+                // If temp1 reaches null, now restart from head2
+                temp1 = head2;
             } else {
                 // Otherwise, move to the next node in list1
-                d1 = d1.next;
+                temp1 = temp1.next;
             }
 
-            // Check if d2 is null
-            if (d2 == null) {
-                // If d2 is null, now restart from head1
-                d2 = head1;
+            // Check if temp2 is null
+            if (temp2 == null) {
+                // If temp2 is null, now restart from head1
+                temp2 = head1;
             } else {
                 // Otherwise, move to the next node in list2
-                d2 = d2.next;
+                temp2 = temp2.next;
             }
         }
 
         // Always through this algorithm:
-        // d1 and d2 will either meet at the intersection node, or both will be null if no intersection
-        return d1;
+        // temp1 and temp2 will either meet at the intersection node, or both will be null if no intersection
+        return temp1;
     }
+
 
 }
 
