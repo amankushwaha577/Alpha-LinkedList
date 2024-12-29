@@ -60,24 +60,19 @@ class CustomLL {
         // Traverse the reversed list and add carry
         while (current != null) {
             int sum = current.data + carry; // Add carry to the current digit
-            current.data = sum % 10; // Update current node's data with the digit
-            carry = sum / 10; // Update carry for the next iteration
-
-            // If carry is 0, no need to continue the loop
-            if (carry == 0) {
+            if(sum < 10){
+                carry = 0;  // If carry is 0, no need to continue the loop
                 break; // Exit the loop early if no carry remains
+            }else{
+                current.data = 0;
+                carry = 1;
             }
             current = current.next; // Move to the next node
         }
 
-        // If carry is left, we need to add a new node
-        if (carry > 0) {
-            Node newNode = new Node(carry); // Create a new node for the carry
-            current.next = newNode; // Add it to the end of the list
-        }
-
         // Reverse the list again to restore the original order
           newHead = reverseList(newHead); // newHead == head
+        // actually there is no need of "newHead" variable.
 
         // head = reverseList(head); <---- X no need to do it
         //---------------------------------------------------
@@ -86,6 +81,16 @@ class CustomLL {
         // so after again reverse list came back in previous form
         // but beauty is that in complete process head pointed to the node that was initially head.
         // so we are back in original state but head is still same
+
+        // If carry is left, we need to add a new node
+        if (carry > 0) {
+            Node newNode = new Node(carry); // Create a new node for the carry
+            current.next = newNode; // Add it to the end of the list
+//
+//            newNode.next = head;
+//            head = newNode;
+        }
+
     }
 
     // Method to reverse the linked list
@@ -109,8 +114,8 @@ public class Bruteforce {
         CustomLL list = new CustomLL();
 
         // Adding sample nodes to represent a number (e.g., 1 -> 2 -> 3, which represents 123)
-        list.addLast(1);
-        list.addLast(2);
+        list.addLast(0);
+        list.addLast(9);
         list.addLast(9);
 
         // Print the original list
