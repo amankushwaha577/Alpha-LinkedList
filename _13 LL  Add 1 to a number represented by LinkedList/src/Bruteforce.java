@@ -42,7 +42,7 @@ class CustomLL {
     }
 
     // Method to add 1 to the number represented by the linked list
-    public void addOne() {
+    public void addOne() { // T: o(3N)- 2 reverse+ 1 traverse for comparing, s: 0(1)
         // Reverse the linked list to make addition easier from least significant digit
 
         // head = reverseList(head);  <---- X no need to do it (its gpt code )
