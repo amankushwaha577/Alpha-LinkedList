@@ -89,7 +89,7 @@ class CustomLL2 {
         while (secondHalf != null) { // 0(n/2)=> traversing only 2nd half
             System.out.println(firstHalf.data+" "+ secondHalf.data);
             // For rNd : comparing 1st half & reversed 2nd half => What we got => In odd list middle node will be used in comparison in both reveres 2nd half + 1st half
-            // 5 elements there => 2nd list stated from 3, so when 2nd list will be traverse because of 3 node in this 3 node of 1st list will be traverse.
+            // 5 elements there => 2nd list stated from 3rd, so when 2nd list will be traverse because of 3 node in this 3 node of 1st list will be traverse which also include middle.
 
             if (firstHalf.data != secondHalf.data) {
                 // If any corresponding values differ, the list is not a palindrome
