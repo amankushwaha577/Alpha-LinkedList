@@ -180,3 +180,23 @@ public class Optimal_TortoiseNHare {
  * The loop starts at node 2 and continues in the cycle 2 -> 3 -> 4 -> 5 -> 2 -> ...
  * This is achieved by connecting the last node (5) back to the second node (2).
  */
+
+//
+//Phase 1: Loop Detection
+//        1. The Tortoise and Hare algorithm uses two pointers:
+//              slow moves one step at a time.
+//              fast moves two steps at a time.
+//        2. In the worst case, the fast pointer traverses the entire list until it either finds the loop or reaches the end of the list.
+//        3. If there is a loop, slow and fast will meet after traversing a portion of the loop.
+//             This takes O(N) time because the fast pointer effectively skips one node per iteration.
+//        4. If there is no loop, the while loop terminates after O(N) steps.
+
+//Phase 2: Finding the Start of the Cycle
+//        1. Once a loop is detected, the slow pointer is reset to the head of the list, and both slow and fast pointers move one step at a time.
+//        2. The distance traveled in this phase is at most the size of the loop or the distance from the head to the start of the loop, which is also O(N) in the worst case.
+
+//        Overall Time Complexity :
+//        Both Phase 1 and Phase 2 are linear operations.
+//        Therefore, the overall time complexity is:
+//        ----------------------------------------------
+//        O(N)+O(N)=O(N)
