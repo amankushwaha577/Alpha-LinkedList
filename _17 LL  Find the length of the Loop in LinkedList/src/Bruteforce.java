@@ -76,7 +76,7 @@ class CustomLL1 {
     }
 
     // Method to calculate the length of a loop in a linked list
-    public static int lengthOfLoop(Node head) {
+    public static int lengthOfLoop(Node head) { // T: 0(N x 2 Map operation (insert, find) cost maybe log/constant ) => 0(N) | lets take constant for that. || S : 0(N) To store all nodes
         // Step 1: Create a HashMap to store visited nodes and their timer values.
         // The key is the node reference, and the value is an integer (the timer value).
         Map<Node, Integer> visitedNodes = new HashMap<>();

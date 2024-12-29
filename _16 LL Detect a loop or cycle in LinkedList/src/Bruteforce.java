@@ -56,7 +56,7 @@ class CustomLL1 {
     }
 
     // Method to detect a loop in the linked list
-    public boolean detectLoop() { // T: 0(N x 2 Map operation (insert, find) cost ) => 0(N) | lets take constant for that. || S : 0(N) To store all nodes
+    public boolean detectLoop() { // T: 0(N x 2 Map operation (insert, find) cost maybe log/constant ) => 0(N) | lets take constant for that. || S : 0(N) To store all nodes
         // Step 1: Initialize a pointer 'temp' at the head of the linked list
         Node temp = head;
 
