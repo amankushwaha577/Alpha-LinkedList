@@ -41,73 +41,42 @@ class CustomLL2 {
         System.out.println("null"); // End of the list
     }
 
-    // Method to add 1 to the number represented by the linked list
-    public void addOne() { // T: o(3N)- 2 reverse+ 1 traverse for comparing, s: 0(1)
-        // Reverse the linked list to make addition easier from least significant digit
-
-        // head = reverseList(head);  <---- X no need to do it (its gpt code )
-        // See : if we are reversing starting from head.
-        // than only from head.next thing will change... keep it remember.
-        // head will still point to the node that was head.
-        // so no need to do head = reverseList(head);
-        // so no need to touch head.
-        // so no need to change head that was initially.
-        Node newHead = reverseList(head);
-
-        Node current = newHead;
-        int carry = 1; // We are adding 1 to the number, so the initial carry is 1
-
-        // Traverse the reversed list and add carry
-        while (current != null) {
-            int sum = current.data + carry; // Add carry to the current digit
-            if(sum < 10){
-                current.data = sum;
-                carry = 0;  // If carry is 0, no need to continue the loop
-                break; // Exit the loop early if no carry remains
-            }else{
-                current.data = 0;
-                carry = 1;
-            }
-            current = current.next; // Move to the next node
+    // Method to add 1 to the number represented by the linked list using backtracking
+    public void addOne() {
+        // Start recursive backtracking from the head node
+        if (addOneRecursive(head) == 1) {
+            // If carry is left after adding 1 to the most significant digit
+            Node newNode = new Node(1);  // Create a new node with data 1
+            newNode.next = head;  // Add it at the front of the list
+            head = newNode;  // Set new node as the head
         }
-
-        // Reverse the list again to restore the original order
-        newHead = reverseList(newHead); // newHead == head
-        // actually there is no need of "newHead" variable.
-
-        // head = reverseList(head); <---- X no need to do it
-        //---------------------------------------------------
-        // Remember => Node newHead = reverseList(head);
-        // we have not changed original "head"
-        // so after again reverse list came back in previous form
-        // but beauty is that in complete process head pointed to the node that was initially head.
-        // so we are back in original state but head is still same
-
-        // If carry is left, we need to add a new node at front
-        if (carry > 0) {
-            Node newNode = new Node(carry); // Create a new node for the carry
-
-            newNode.next = head; // Add it to the front of the list
-            head = newNode; // make "newNode" as head
-        }
-
     }
 
-    // Method to reverse the linked list
-    private Node reverseList(Node head) {
-        Node prev = null;
-        Node current = head;
-        while (current != null) {
-            Node nextNode = current.next;
-            current.next = prev;
-            prev = current;
-            current = nextNode;
+    // Recursive method to add 1 and propagate the carry back
+    private int addOneRecursive(Node node) {
+        // Base case: if we reach the end of the list
+        if (node == null) {
+            return 1;  // Return carry 1 to propagate back
         }
-        return prev; // New head after reversal
+
+        // Recursively call the next node
+        int carry = addOneRecursive(node.next);
+
+        // If carry is 1, add it to the current node's data
+        int sum = node.data + carry;
+
+        // If the sum exceeds 9, set the data to 0 and propagate the carry
+        if (sum >= 10) {
+            node.data = 0;
+            return 1;  // Propagate carry 1
+        } else {
+            node.data = sum;
+            return 0;  // No carry, return 0
+        }
     }
 }
 
-// Main class to test the CustomLL class and addOne method
+// Main class to test the CustomLL2 class and addOne method
 public class Optimal_Recursion {
     public static void main(String[] args) {
         // Create the linked list
@@ -122,7 +91,7 @@ public class Optimal_Recursion {
         System.out.println("Original List:");
         list.printList();
 
-        // Add 1 to the number represented by the linked list
+        // Add 1 to the number represented by the linked list using backtracking
         list.addOne();
 
         // Print the updated list
