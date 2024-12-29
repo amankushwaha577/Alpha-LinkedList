@@ -56,7 +56,7 @@ class CustomLL4 {
         while (d1 != d2) {
             // Check if d1 is null
             if (d1 == null) {
-                // If d1 is null, restart from head2
+                // If d1 is reach null, now restart from head2
                 d1 = head2;
             } else {
                 // Otherwise, move to the next node in list1
@@ -65,7 +65,7 @@ class CustomLL4 {
 
             // Check if d2 is null
             if (d2 == null) {
-                // If d2 is null, restart from head1
+                // If d2 is null, now restart from head1
                 d2 = head1;
             } else {
                 // Otherwise, move to the next node in list2
@@ -73,6 +73,7 @@ class CustomLL4 {
             }
         }
 
+        // Always through this algorithm:
         // d1 and d2 will either meet at the intersection node, or both will be null if no intersection
         return d1;
     }
