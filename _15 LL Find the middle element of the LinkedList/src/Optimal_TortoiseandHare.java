@@ -52,7 +52,7 @@
         Node fast = head;  // Fast pointer
 
         // Traverse the list with the slow pointer moving one step and the fast pointer moving two steps
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null) { // It always require in case of Tortoise and hare
             slow = slow.next;        // Move slow pointer by one step
             fast = fast.next.next;   // Move fast pointer by two steps
 
