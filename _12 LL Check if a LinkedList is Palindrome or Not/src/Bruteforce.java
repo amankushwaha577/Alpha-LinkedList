@@ -44,7 +44,7 @@ class CustomLL {
     }
 
     // Method to check if the linked list is a palindrome
-    public boolean isPalindrome() {
+    public boolean isPalindrome() { // T:o(2N) s:o(n)
         // Create an empty stack to temporarily store the values of the linked list
         Stack<Integer> st = new Stack<>();
 
