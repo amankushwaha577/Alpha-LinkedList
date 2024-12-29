@@ -45,7 +45,7 @@ class CustomLL {
     public void addOne() {
         // Reverse the linked list to make addition easier from least significant digit
 
-        // head = reverseList(head);
+        // head = reverseList(head);  <---- X no need to do it (its gpt code )
         // See : if we are reversing starting from head.
         // than only from head.next thing will change... keep it remember.
         // head will still point to the node that was head.
