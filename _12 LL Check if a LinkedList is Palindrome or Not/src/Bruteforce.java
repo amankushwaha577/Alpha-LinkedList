@@ -78,6 +78,7 @@ class CustomLL {
             temp = temp.next;
         }
 
+        // if execution comes here than all are matched.
         // If all values match during the comparison, the linked list is a palindrome
         return true;
     }
