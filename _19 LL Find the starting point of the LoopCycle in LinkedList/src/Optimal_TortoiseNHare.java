@@ -96,6 +96,7 @@ class CustomLL2 {
                 // Phase 2: Find the first node of the loop
 
                 // Reset the slow pointer to the head of the list
+                // but fast is at remain at first collided place currently
                 slow = head;
 
                 // Now move both slow and fast one step at a time. The point at which they meet again
