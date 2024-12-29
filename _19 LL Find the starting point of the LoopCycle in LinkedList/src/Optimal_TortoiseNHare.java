@@ -86,27 +86,26 @@ class CustomLL2 {
         Node slow = head;
         Node fast = head;
 
-        // Phase 1: Detect the loop
+        // Phase 1: Detect the loop using the Tortoise and Hare algorithm
         while (fast != null && fast.next != null) {
-            // Move slow one step
-            slow = slow.next;
+            slow = slow.next;       // Move slow pointer one step
+            fast = fast.next.next;  // Move fast pointer two steps
 
-            // Move fast two steps
-            fast = fast.next.next;
-
-            // If slow and fast meet, a loop is detected
+            // If slow and fast pointers meet, a loop is detected
             if (slow == fast) {
+                // Phase 2: Find the first node of the loop
+
                 // Reset the slow pointer to the head of the list
                 slow = head;
 
-                // Phase 2: Find the first node of the loop
+                // Now move both slow and fast one step at a time. The point at which they meet again
+                // will be the starting node of the loop.
                 while (slow != fast) {
-                    // Move slow and fast one step at a time
-                    slow = slow.next;
-                    fast = fast.next;
+                    slow = slow.next; // Move slow pointer one step
+                    fast = fast.next; // Move fast pointer one step
                 }
 
-                // When slow and fast meet again, it's the first node of the loop
+                // When slow and fast meet again, it means slow is at the start of the loop
                 return slow;
             }
         }
@@ -116,7 +115,7 @@ class CustomLL2 {
     }
 }
 
-// Main class to test the CustomLL2 class
+    // Main class to test the CustomLL2 class
 public class Optimal_TortoiseNHare {
     public static void main(String[] args) {
         // Create a linked list
