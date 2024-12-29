@@ -83,7 +83,7 @@ class CustomLL {
         // but beauty is that in complete process head pointed to the node that was initially head.
         // so we are back in original state but head is still same
 
-        // If carry is left, we need to add a new node
+        // If carry is left, we need to add a new node at front
         if (carry > 0) {
             Node newNode = new Node(carry); // Create a new node for the carry
 
