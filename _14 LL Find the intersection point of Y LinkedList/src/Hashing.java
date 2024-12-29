@@ -45,6 +45,10 @@ class CustomLL2 {
 
     // Utility function to check presence of intersection between two linked lists
     static Node intersectionPresent(Node head1, Node head2) { // T: 0(N1+N2)  S: 0(N1)- if we are storing first LL, 0(N2)-if we are storing 2nd LL
+        // Check if either list is null
+        if (head1 == null || head2 == null) {
+            return null; // If either list is null, there's no intersection
+        }
         // Create a HashSet to store the nodes of the first linked list
         HashSet<Node> st = new HashSet<>();
 

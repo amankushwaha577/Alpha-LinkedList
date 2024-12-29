@@ -45,6 +45,10 @@ class CustomLL4 {
 
     // Utility function to check presence of intersection between two linked lists
     static Node intersectionPresent(Node head1, Node head2) {
+        // Check if either list is null
+        if (head1 == null || head2 == null) {
+            return null; // If either list is null, there's no intersection
+        }
         Node d1 = head1;
         Node d2 = head2;
 

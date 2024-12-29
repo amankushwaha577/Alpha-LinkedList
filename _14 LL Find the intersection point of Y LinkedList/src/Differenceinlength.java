@@ -62,6 +62,10 @@ class CustomLL3 {
 
     // Utility function to check for intersection between two linked lists
     static Node intersectionPresent(Node head1, Node head2) { // T:  0(N1 +N2) + 0(N1-N2) + 0(N2) => 0(2N1 + N2)  | S: 0(1)
+        // Check if either list is null
+        if (head1 == null || head2 == null) {
+            return null; // If either list is null, there's no intersection
+        }
         // Step 1: Calculate the length difference between the two linked lists
         int diff = getDifference(head1, head2); // The difference in lengths is computed using getDifference()
         // if diff>0 => l1 is bigger
