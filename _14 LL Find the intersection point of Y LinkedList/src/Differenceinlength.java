@@ -45,16 +45,16 @@ class CustomLL3 {
     static int getDifference(Node head1, Node head2) {
         int len1 = 0, len2 = 0;
 
-        // Traverse both linked lists to calculate their lengths
-        while (head1 != null || head2 != null) {
-            if (head1 != null) {
-                ++len1;
-                head1 = head1.next; // Move to the next node in the first list
-            }
-            if (head2 != null) {
-                ++len2;
-                head2 = head2.next; // Move to the next node in the second list
-            }
+        // Calculate the length of the first linked list
+        while (head1 != null) {
+            ++len1;
+            head1 = head1.next;
+        }
+
+        // Calculate the length of the second linked list
+        while (head2 != null) {
+            ++len2;
+            head2 = head2.next;
         }
 
         return len1 - len2; // Return the difference in lengths
@@ -62,33 +62,45 @@ class CustomLL3 {
 
     // Utility function to check for intersection between two linked lists
     static Node intersectionPresent(Node head1, Node head2) {
-        int diff = getDifference(head1, head2); // Calculate the length difference
+        // Step 1: Calculate the length difference between the two linked lists
+        int diff = getDifference(head1, head2); // The difference in lengths is computed using getDifference()
 
-        // Align the starting points of the two lists
-        if (diff < 0) {
-            while (diff++ != 0) {
-                head2 = head2.next; // Move the pointer in the second list
-            }
-        } else {
-            while (diff-- != 0) {
+        // Step 2: Align the starting points of the two linked lists
+        if (diff > 0) {
+            // If the first list is longer, move its pointer ahead by 'diff' nodes
+            // This ensures both lists start at the same relative position
+            // for further comparison.
+            while (diff != 0) {
                 head1 = head1.next; // Move the pointer in the first list
+                diff--; // Decrement diff towards 0
+            }
+        } else if (diff < 0) {
+            // If the second list is longer, move its pointer ahead by 'diff' nodes
+            // This aligns the second list to the same relative position as the first list.
+            while (diff != 0) {
+                head2 = head2.next; // Move the pointer in the second list
+                diff++; // Increment diff towards 0
             }
         }
 
-        // Traverse both lists and find the intersection point
-        while (head1 != null) {
-            if (head1 == head2) { // Check if the nodes are the same
-                return head1;  // Intersection point found
+        // Step 3: Traverse both linked lists simultaneously
+        while (head1 != null && head2 != null) {
+            // Check if the current nodes of both lists are the same
+            if (head1 == head2) {
+                // Intersection found, return the intersecting node
+                return head1;
             }
-            head1 = head1.next; // Move to the next node in the first list
-            head2 = head2.next; // Move to the next node in the second list
+            // Move both pointers to the next nodes in their respective lists
+            head1 = head1.next;
+            head2 = head2.next;
         }
 
-        return null; // No intersection found
+        // Step 4: If no intersection is found, return null
+        return null;
     }
 }
 
-// Main class to test the CustomLL2 class and intersectionPresent method
+// Main class to test the CustomLL3 class and intersectionPresent method
 public class Differenceinlength {
     public static void main(String[] args) {
         // Create two linked lists
