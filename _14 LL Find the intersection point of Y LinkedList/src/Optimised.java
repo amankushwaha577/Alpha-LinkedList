@@ -44,7 +44,7 @@ class CustomLL4 {
     }
 
     // Utility function to check presence of intersection between two linked lists
-    static Node intersectionPresent(Node head1, Node head2) { // T:0(N1+N2) // any one pointer: suppose temp1 pointer can traverse both lists if it reaches null of its list List1 than it will traverse List2 ( We are not doing 2(N1+N2) because temp2 is also moving simultaneously with temp1 ) || S: 0(1)
+    static Node intersectionPresent(Node head1, Node head2) { // T:0(N1+N2) // any one pointer: suppose temp1 pointer can traverse both lists if it reaches null of its list List1 than it will traverse List2 || ( We are not doing 2(N1+N2) because temp2 is also moving simultaneously with temp1 ) || S: 0(1)
         // Check if either list is null
         if (head1 == null || head2 == null) {
             return null; // If either list is null, there's no intersection
