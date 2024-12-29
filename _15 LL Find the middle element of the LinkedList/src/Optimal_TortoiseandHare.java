@@ -86,7 +86,7 @@ class CustomLL2 {
 }
 
 // Main class to test the CustomLL1 class and findMiddle method
-public class Optimal {
+public class Optimal_TortoiseandHare {
     public static void main(String[] args) {
         // Create a linked list
         CustomLL2 list = new CustomLL2();
