@@ -82,6 +82,7 @@ class CustomLL2 {
         Node fast = head;
 
         // Move the fast pointer two steps ahead, so that fast.next.next is valid
+        // Actually we are skipping one slow pointer movement by moving 2 step fast
         fast = fast.next.next;
 
         // Move 'fast' pointer twice as fast as 'slow'
