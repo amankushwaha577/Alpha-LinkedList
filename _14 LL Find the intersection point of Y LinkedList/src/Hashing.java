@@ -43,24 +43,28 @@ class CustomLL2 {
         System.out.println("null"); // End of the list
     }
 
-    // Utility function to check presence of intersection
+    // Utility function to check presence of intersection between two linked lists
     static Node intersectionPresent(Node head1, Node head2) {
+        // Create a HashSet to store the nodes of the first linked list
         HashSet<Node> st = new HashSet<>();
 
-        // Traverse the first linked list and add all nodes to the hash set
+        // Traverse the first linked list and add each node to the hash set
+        // This will allow us to later check if a node in the second list is already in the hash set
         while (head1 != null) {
-            st.add(head1);
-            head1 = head1.next;
+            st.add(head1); // Add the current node of the first list to the hash set
+            head1 = head1.next; // Move to the next node in the first list
         }
 
         // Traverse the second linked list and check if any node is already in the hash set
+        // If a node is found in the hash set, it means this node is common to both lists (i.e., intersection point)
         while (head2 != null) {
-            if (st.contains(head2)) {
-                return head2;  // Intersection point found
+            if (st.contains(head2)) { // Check if the current node of the second list exists in the hash set
+                return head2;  // Intersection point found, return the node
             }
-            head2 = head2.next;
+            head2 = head2.next; // Move to the next node in the second list
         }
 
+        // If no intersection is found after traversing both lists, return null
         return null;  // No intersection found
     }
 }
