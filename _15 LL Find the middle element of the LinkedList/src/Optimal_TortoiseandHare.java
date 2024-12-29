@@ -60,8 +60,8 @@
             // The loop stops when:
             // 1. **Odd-length list**: When fast reaches the last node (fast.next == null),
             //    slow will be at the exact middle node.
-            // 2. **Even-length list**: When fast reaches (fast == null),
-            //    slow will be at the 2nd middle node (the righr middle in case of even length).
+            // 2. **Even-length list**: When fast reaches end (fast == null),
+            //    slow will be at the 2nd middle node (the right middle in case of even length).
         }
 
         // Slow pointer will be at the middle when fast pointer reaches the end
