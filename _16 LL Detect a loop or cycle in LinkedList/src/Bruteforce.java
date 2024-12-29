@@ -115,7 +115,7 @@ public class Bruteforce {
         // Create a loop by linking the last node to the second node
         if (loopNode != null) {
             temp = list.head;
-            while (temp != null && temp.next != null) {
+            while (temp != null && temp.next != null) { // reach last node using temp
                 temp = temp.next;
             }
             // Link the last node's next to the loopNode (second node)
@@ -136,7 +136,7 @@ public class Bruteforce {
  * Linked List with a Loop:
  *
  * 1 -> 2 -> 3 -> 4 -> 5
- *       ^_____________|
+ *      ^______________|
  *
  * The loop starts at node 2 and continues in the cycle 2 -> 3 -> 4 -> 5 -> 2 -> ...
  * This is achieved by connecting the last node (5) back to the second node (2).
