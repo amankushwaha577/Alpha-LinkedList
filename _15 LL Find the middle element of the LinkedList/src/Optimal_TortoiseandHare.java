@@ -1,5 +1,4 @@
-
-class CustomLL2 {
+ class CustomLL2 {
     Node head; // Head of the linked list
 
     // Definition of a Node in the linked list
@@ -42,50 +41,36 @@ class CustomLL2 {
         System.out.println("null"); // End of the list
     }
 
-    // Function to find the middle node of a linked list
-    static Node findMiddle(Node head) { // T:0(N1) for length check + 0(N/2) for traverse up to mid || S:0(1)
-        // If the list is empty or has
-        // only one element, return the head as
-        // it's the middle.
-        if (head == null || head.next == null) {
-            return head;
+    // Function to find the middle node of a linked list using slow and fast pointers
+    public Node findMiddle() { // T: O(N) | S: O(1)
+        // If the list is empty, return null
+        if (head == null) {
+            return null;
         }
 
-        Node temp = head;
-        int count = 0;
+        Node slow = head;  // Slow pointer
+        Node fast = head;  // Fast pointer
 
-        // Count the number of nodes
-        // in the linked list.
-        while (temp != null) {
-            count++;
-            temp = temp.next;
+        // Traverse the list with the slow pointer moving one step and the fast pointer moving two steps
+        while (fast != null && fast.next != null) {
+            slow = slow.next;        // Move slow pointer by one step
+            fast = fast.next.next;   // Move fast pointer by two steps
+
+            // Explanation:
+            // The loop stops when:
+            // 1. **Odd-length list**: When fast reaches the last node (fast.next == null),
+            //    slow will be at the exact middle node.
+            // 2. **Even-length list**: When fast reaches (fast == null),
+            //    slow will be at the 2nd middle node (the righr middle in case of even length).
         }
 
-        // Calculate the position of the middle node.
-        int mid = count / 2 + 1;  // if count = 5 => (5/2)+1 = 2+1 =3 Great || count = 6 => (6/2)+1 = 3+1 =4 Great ( Choose Right Middle )
-        temp = head;
-
-        while (temp != null) {
-            mid--;
-
-            // Check if the middle
-            // position is reached.
-            if (mid == 0){
-                // break out of the loop
-                // to return temp
-                break;
-            }
-            // Move temp ahead
-            temp = temp.next;
-        }
-
-        // Return the middle node.
-        return temp;
+        // Slow pointer will be at the middle when fast pointer reaches the end
+        return slow;
     }
 
 }
 
-// Main class to test the CustomLL1 class and findMiddle method
+// Main class to test the CustomLL2 class and findMiddle method
 public class Optimal_TortoiseandHare {
     public static void main(String[] args) {
         // Create a linked list
@@ -102,8 +87,8 @@ public class Optimal_TortoiseandHare {
         System.out.println("List:");
         list.printList();
 
-        // Find the middle node
-        CustomLL2.Node middleNode = CustomLL2.findMiddle(list.head);
+        // Find the middle node using the slow and fast pointer technique
+        CustomLL2.Node middleNode = list.findMiddle(); // Instance method call
 
         // Print the middle node
         if (middleNode != null) {
@@ -113,4 +98,3 @@ public class Optimal_TortoiseandHare {
         }
     }
 }
-
