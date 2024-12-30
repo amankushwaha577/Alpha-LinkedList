@@ -114,6 +114,11 @@ class CustomLL5 {
     }
 }
 
+// getKthNode(): 0(N) -    Traversing the complete list to find the Kth node [part by part]
+// reverseLinkedList 0(N)- Reversing the complete list [part by part]
+// T:0(2N)
+// S:0(1)
+
 public class Main {
     public static void main(String[] args) {
         CustomLL5 list = new CustomLL5();
