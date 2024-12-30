@@ -53,10 +53,10 @@ class CustomLL5 {
 
         // Case 2: Find the length of the linked list
         Node temp = head;
-        int length = 1;  // Start with length 1 because the head node is counted first
+        int length = 0;  // Start with length 0, counting the nodes starting from the head
 
         // Traverse the list to calculate the total number of nodes
-        while (temp.next != null) { // Traverse until the last node
+        while (temp != null) { // Traverse until the last node (null)
             temp = temp.next;   // Move to the next node
             length++;           // Increment the length
         }
