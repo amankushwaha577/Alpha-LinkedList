@@ -3,11 +3,31 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" filepath="$PROJECT_DIR$/.idea/Alpha-LinkedList.iml" />
-      <module fileurl="file://$PROJECT_DIR$/_001SinglyLL/_001SinglyLL.iml" filepath="$PROJECT_DIR$/_001SinglyLL/_001SinglyLL.iml" />
-      <module fileurl="file://$PROJECT_DIR$/_003Size/_003Size.iml" filepath="$PROJECT_DIR$/_003Size/_003Size.iml" />
-      <module fileurl="file://$PROJECT_DIR$/_005InBuildList/_005InBuildList.iml" filepath="$PROJECT_DIR$/_005InBuildList/_005InBuildList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_00 Singly LL/_00 Singly LL.iml" filepath="$PROJECT_DIR$/_00 Singly LL/_00 Singly LL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_01 InBuild List Method/_01 InBuild List Method.iml" filepath="$PROJECT_DIR$/_01 InBuild List Method/_01 InBuild List Method.iml" />
       <module fileurl="file://$PROJECT_DIR$/_02 LL Insertion/_02 LL Insertion.iml" filepath="$PROJECT_DIR$/_02 LL Insertion/_02 LL Insertion.iml" />
       <module fileurl="file://$PROJECT_DIR$/_03 LL Deletion/_03 LL Deletion.iml" filepath="$PROJECT_DIR$/_03 LL Deletion/_03 LL Deletion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_04 DLL Insertion/_04 DLL Insertion.iml" filepath="$PROJECT_DIR$/_04 DLL Insertion/_04 DLL Insertion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_05 DLL Deletion/_05 DLL Deletion.iml" filepath="$PROJECT_DIR$/_05 DLL Deletion/_05 DLL Deletion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_06 DLL Reverse/_06 DLL Reverse.iml" filepath="$PROJECT_DIR$/_06 DLL Reverse/_06 DLL Reverse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_07 LL Add 2Numbers ( Dummy Node Approach )/_07 LL Add 2Numbers ( Dummy Node Approach ).iml" filepath="$PROJECT_DIR$/_07 LL Add 2Numbers ( Dummy Node Approach )/_07 LL Add 2Numbers ( Dummy Node Approach ).iml" />
+      <module fileurl="file://$PROJECT_DIR$/_08 LL Segregate Odd-Even Indexe Nodes/_08 LL Segregate Odd-Even Indexe Nodes.iml" filepath="$PROJECT_DIR$/_08 LL Segregate Odd-Even Indexe Nodes/_08 LL Segregate Odd-Even Indexe Nodes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_09 LL Sort a LinkedList of 0s 1s and 2s/_09 LL Sort a LinkedList of 0s 1s and 2s.iml" filepath="$PROJECT_DIR$/_09 LL Sort a LinkedList of 0s 1s and 2s/_09 LL Sort a LinkedList of 0s 1s and 2s.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_10 LL Remove Nth Node from the end/_10 LL Remove Nth Node from the end.iml" filepath="$PROJECT_DIR$/_10 LL Remove Nth Node from the end/_10 LL Remove Nth Node from the end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_11 LL Reverse/_11 LL Reverse.iml" filepath="$PROJECT_DIR$/_11 LL Reverse/_11 LL Reverse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_12 LL Check if a LinkedList is Palindrome or Not/_12 LL Check if a LinkedList is Palindrome or Not.iml" filepath="$PROJECT_DIR$/_12 LL Check if a LinkedList is Palindrome or Not/_12 LL Check if a LinkedList is Palindrome or Not.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_13 LL  Add 1 to a number represented by LinkedList/_13 LL  Add 1 to a number represented by LinkedList.iml" filepath="$PROJECT_DIR$/_13 LL  Add 1 to a number represented by LinkedList/_13 LL  Add 1 to a number represented by LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_14 LL Find the intersection point of Y LinkedList/_14 LL Find the intersection point of Y LinkedList.iml" filepath="$PROJECT_DIR$/_14 LL Find the intersection point of Y LinkedList/_14 LL Find the intersection point of Y LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_15 LL Find the middle element of the LinkedList/_15 LL Find the middle element of the LinkedList.iml" filepath="$PROJECT_DIR$/_15 LL Find the middle element of the LinkedList/_15 LL Find the middle element of the LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_16 LL Detect a loop or cycle in LinkedList/_16 LL Detect a loop or cycle in LinkedList.iml" filepath="$PROJECT_DIR$/_16 LL Detect a loop or cycle in LinkedList/_16 LL Detect a loop or cycle in LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_17 LL  Find the length of the Loop in LinkedList/_17 LL  Find the length of the Loop in LinkedList.iml" filepath="$PROJECT_DIR$/_17 LL  Find the length of the Loop in LinkedList/_17 LL  Find the length of the Loop in LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_18 LL Delete the middle node of the LinkedList/_18 LL Delete the middle node of the LinkedList.iml" filepath="$PROJECT_DIR$/_18 LL Delete the middle node of the LinkedList/_18 LL Delete the middle node of the LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_19 LL Find the starting point of the LoopCycle in LinkedList/_19 LL Find the starting point of the LoopCycle in LinkedList.iml" filepath="$PROJECT_DIR$/_19 LL Find the starting point of the LoopCycle in LinkedList/_19 LL Find the starting point of the LoopCycle in LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_20 DLL Delete all occurrences of a Key in DLL/_20 DLL Delete all occurrences of a Key in DLL.iml" filepath="$PROJECT_DIR$/_20 DLL Delete all occurrences of a Key in DLL/_20 DLL Delete all occurrences of a Key in DLL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_21 DLL Find all Pairs with given Sum in Sorted DLL/_21 DLL Find all Pairs with given Sum in Sorted DLL.iml" filepath="$PROJECT_DIR$/_21 DLL Find all Pairs with given Sum in Sorted DLL/_21 DLL Find all Pairs with given Sum in Sorted DLL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_22 DLL Remove duplicates from sorted DLL/_22 DLL Remove duplicates from sorted DLL.iml" filepath="$PROJECT_DIR$/_22 DLL Remove duplicates from sorted DLL/_22 DLL Remove duplicates from sorted DLL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_23 LL Reverse Nodes in K Group Size of LinkedList/_23 LL Reverse Nodes in K Group Size of LinkedList.iml" filepath="$PROJECT_DIR$/_23 LL Reverse Nodes in K Group Size of LinkedList/_23 LL Reverse Nodes in K Group Size of LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_88Size/_88Size.iml" filepath="$PROJECT_DIR$/_88Size/_88Size.iml" />
     </modules>
   </component>
 </project>
