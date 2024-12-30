@@ -87,7 +87,7 @@ class CustomLL5 {
 
             // CASE 3: Reverse the current group
             kThNode.next = null;  // Detach the current group
-            // actually if we want to reverse 3 node list than 3rd node must point to null
+            // actually if we want to reverse 3 nodes list than 3rd node must point to null
             Node newHead = reverseLinkedList(temp);
 
             if (temp == head) {
