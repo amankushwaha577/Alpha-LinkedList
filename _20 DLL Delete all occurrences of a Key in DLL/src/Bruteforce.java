@@ -44,7 +44,7 @@ class CustomDoublyLinkedList {
     }
 
     // Method to delete all occurrences of a given key in the doubly linked list
-    public void deleteAllOccurrences(int key) {
+    public void deleteAllOccurrences(int key) { // T:0(N) S:0(1)   - The method iterates through each node in the doubly linked list exactly once.
         // Start from the head of the list
         Node current = head;
 
