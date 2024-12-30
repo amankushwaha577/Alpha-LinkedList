@@ -44,7 +44,7 @@ class CustomDoublyLinkedList {
     }
 
     // Brute-force method to find all pairs with a given sum in the doubly linked list
-    public void findAllPairsWithSum(int targetSum) { // O(n^2)
+    public void findAllPairsWithSum(int targetSum) { // T: O(n^2) Near about, Not exactly
         // Case 1: Check if the list is empty
         if (head == null) {
             System.out.println("List is empty"); // If the list is empty, print message and return
