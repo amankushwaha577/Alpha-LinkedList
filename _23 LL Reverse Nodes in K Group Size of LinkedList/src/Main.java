@@ -105,8 +105,9 @@ class CustomLL5 {
 
             // CASE 6: Update pointers for the next iteration
             lastNodeOfPreviousGroup = temp; // The current group's first node becomes the last after reversal
-            // before jumping temp from current to 'firstNodeOfNextGroup'
+            // before jumping temp from current node to 'firstNodeOfNextGroup'
             // preserve 'lastNodeOfPreviousGroup' for future linking
+            // basically currently its ""last Node Of current Group""
 
             temp = firstNodeOfNextGroup; // Move to the next group
         }
