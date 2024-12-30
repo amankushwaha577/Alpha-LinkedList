@@ -41,18 +41,19 @@ class CustomLL5 {
         System.out.println("null"); // End of the list
     }
 
-    // Function to reverse a linked list using 3-pointer approach
+    // Function to reverse a linked list using a 3-pointer approach
     public Node reverseLinkedList(Node head) {
         Node temp = head;
         Node prev = null;
 
+        // Reverse the linked list
         while (temp != null) {
-            Node front = temp.next;
-            temp.next = prev;
-            prev = temp;
-            temp = front;
+            Node front = temp.next; // Save the next node
+            temp.next = prev;       // Reverse the link
+            prev = temp;            // Move the prev pointer forward
+            temp = front;           // Move the temp pointer forward
         }
-        return prev;
+        return prev; // New head of the reversed list
     }
 
     // Function to get the Kth node from a given position in the linked list
@@ -66,35 +67,40 @@ class CustomLL5 {
     }
 
     // Function to reverse nodes in groups of K
-    public Node kReverse(Node head, int k) {
-        Node temp = head;
-        Node prevLast = null;
+    public void kReverse(int k) {
+        Node temp = head;      // Pointer to traverse the list
+        Node prevLast = null;  // Pointer to keep track of the previous group's last node
 
         while (temp != null) {
+            // CASE 1: Find the Kth node in the current group
             Node kThNode = getKthNode(temp, k);
 
             if (kThNode == null) {
+                // CASE 2: If there are fewer than K nodes left, append them as is
                 if (prevLast != null) {
-                    prevLast.next = temp;
+                    prevLast.next = temp; // Attach the remaining part to the previous group's end
                 }
-                break;
+                break; // No more groups to process
             }
 
-            Node nextNode = kThNode.next;
-            kThNode.next = null;
+            Node nextNode = kThNode.next; // Save the next group's starting node
+            kThNode.next = null;         // Detach the current group
 
+            // CASE 3: Reverse the current group
             Node newHead = reverseLinkedList(temp);
 
             if (temp == head) {
+                // CASE 4: If this is the first group, update the head of the entire list
                 head = newHead;
             } else {
+                // CASE 5: Attach the reversed group to the previous group's last node
                 prevLast.next = newHead;
             }
 
-            prevLast = temp;
-            temp = nextNode;
+            // CASE 6: Update pointers for the next iteration
+            prevLast = temp; // The current group's first node becomes the last after reversal
+            temp = nextNode; // Move to the next group
         }
-        return head;
     }
 }
 
@@ -116,7 +122,7 @@ public class Main {
         list.printList();
 
         // Reverse nodes in groups of 3
-        list.head = list.kReverse(list.head, 3);
+        list.kReverse(3);
 
         // Print the modified list
         System.out.println("List after reversing in groups of 3:");
