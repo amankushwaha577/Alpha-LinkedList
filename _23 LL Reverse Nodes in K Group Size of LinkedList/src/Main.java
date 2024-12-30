@@ -94,8 +94,9 @@ class CustomLL5 {
             // Detach the current group
             Node newHead = reverseLinkedList(temp);
 
+            // CASE 4: First Head
+            // If this is the first group, update the head of the entire list
             if (temp == head) {
-                // CASE 4: If this is the first group, update the head of the entire list
                 head = newHead;
             } else {
                 // CASE 5: Attach the reversed group to the previous group's last node
