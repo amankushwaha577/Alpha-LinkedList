@@ -47,7 +47,7 @@ class CustomDoublyLinkedList2 {
     }
 
     // Optimized method using the two-pointer technique to find pairs with the given sum
-    public void findAllPairsWithSum(int targetSum) { // O(n)
+    public void findAllPairsWithSum(int targetSum) { // T :0(2N) => O(n) [ To reach tail ] + 0(n) [ To traverse result ] || S:0(1)
         // Case 1: Check if the list is empty
         if (head == null) {
             System.out.println("List is empty"); // If the list is empty, print message and return
