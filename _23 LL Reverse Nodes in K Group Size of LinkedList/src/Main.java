@@ -77,7 +77,8 @@ class CustomLL5 {
 
             // Termination condition :
             // CASE 2: If there are fewer than K nodes left, append them as is
-            if (kThNode == null) { // getKthNode return null if group size<k
+            // getKthNode return null if group size<k
+            if (kThNode == null) {
 
                 if (lastNodeOfPreviousGroup != null) {
                     lastNodeOfPreviousGroup.next = temp; // Attach the remaining part to the previous group's end
