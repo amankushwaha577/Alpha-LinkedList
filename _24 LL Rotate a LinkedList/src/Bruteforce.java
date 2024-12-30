@@ -66,14 +66,13 @@ class CustomLL5 {
         if (k == 0) return;  // If k % length results in 0, no rotation is needed
 
         // Case 4: Make the list circular by connecting the last node to the head
-        temp.next = head;  // Connect the last node to the head, creating a circular list
+        temp.next = head;  // Connect the last node to the head, creating circular list
 
         // Case 5: Find the new head after rotating k positions
         int newHeadPosition = length - k;  // New head should be at this position (from the end)
         Node newTail = head;  // Start from the head of the list
 
         // Traverse to the (length - k)th node, which will become the new tail
-        // Change the for loop to a while loop
         int i = 1;
         while (i < newHeadPosition) {
             newTail = newTail.next; // Move the newTail pointer forward
