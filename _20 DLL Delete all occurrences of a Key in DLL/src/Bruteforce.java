@@ -63,8 +63,8 @@ class CustomDoublyLinkedList {
                     }
                 } else {
                     // Case 2: If the node to be deleted is not the head
-                    Node nextNode = current.next; // Reference to the next node
-                    Node prevNode = current.prev; // Reference to the previous node
+                    Node nextNode = current.next; // Reference to its next node
+                    Node prevNode = current.prev; // Reference to its previous node
 
                     // If the next node is not null, update its prev pointer to skip the current node
                     if (nextNode != null) {
