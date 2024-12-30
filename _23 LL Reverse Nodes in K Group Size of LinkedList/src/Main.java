@@ -69,7 +69,7 @@ class CustomLL5 {
     // Function to reverse nodes in groups of K
     public void kReverse(int k) {
         Node temp = head;      // Pointer to traverse the list
-        Node prevLast = null;  // Pointer to keep track of the previous group's last node
+        Node lastNodeOfPreviousGroup = null;  // Pointer to keep track of the previous group's last node
 
         while (temp != null) {
             // CASE 1: Find the Kth node in the current group
@@ -77,17 +77,18 @@ class CustomLL5 {
 
             if (kThNode == null) {
                 // CASE 2: If there are fewer than K nodes left, append them as is
-                if (prevLast != null) {
-                    prevLast.next = temp; // Attach the remaining part to the previous group's end
+                if (lastNodeOfPreviousGroup != null) {
+                    lastNodeOfPreviousGroup.next = temp; // Attach the remaining part to the previous group's end
                 }
                 break; // No more groups to process
             }
 
-            Node nextNode = kThNode.next; // Save the next group's starting node
-
             // CASE 3: Reverse the current group
-            kThNode.next = null;  // Detach the current group
             // actually if we want to reverse 3 nodes list than 3rd node must point to null
+            Node firstNodeOfNextGroup = kThNode.next;
+            // preserve the next group's starting node before detaching
+            kThNode.next = null;
+            // Detach the current group
             Node newHead = reverseLinkedList(temp);
 
             if (temp == head) {
@@ -95,12 +96,12 @@ class CustomLL5 {
                 head = newHead;
             } else {
                 // CASE 5: Attach the reversed group to the previous group's last node
-                prevLast.next = newHead;
+                lastNodeOfPreviousGroup.next = newHead;
             }
 
             // CASE 6: Update pointers for the next iteration
-            prevLast = temp; // The current group's first node becomes the last after reversal
-            temp = nextNode; // Move to the next group
+            lastNodeOfPreviousGroup = temp; // The current group's first node becomes the last after reversal
+            temp = firstNodeOfNextGroup; // Move to the next group
         }
     }
 }
