@@ -67,6 +67,8 @@ class CustomDoublyLinkedList {
                     Node prevNode = current.prev; // Reference to its previous node
 
                     // If the next node is not null, update its prev pointer to skip the current node
+                    // Tail case :
+                    // If nextNode is not tail null, do it else skip -
                     if (nextNode != null) {
                         nextNode.prev = prevNode;
                     }
@@ -83,6 +85,13 @@ class CustomDoublyLinkedList {
         }
     }
 }
+
+//    why we need to check for [[ if (prevNode != null) { } ]] ? since prevnode is always not NULL na? after the first node(head)?
+//    we are correct that for any node that is not the head, its prev pointer will not be null. However, the check if (prevNode != null) exists as a safeguard
+
+//    Thus, the check if (prevNode != null) is not strictly necessary in the current implementation because:
+//        A. The head node case is handled first.
+//        B. All subsequent nodes will have a non-null prev.
 
 public class Bruteforce {
     public static void main(String[] args) {
