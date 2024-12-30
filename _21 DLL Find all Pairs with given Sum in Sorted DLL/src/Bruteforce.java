@@ -44,25 +44,28 @@ class CustomDoublyLinkedList {
     }
 
     // Brute-force method to find all pairs with a given sum in the doubly linked list
-    public void findAllPairsWithSum(int targetSum) {
-        // Check if the list is empty
+    public void findAllPairsWithSum(int targetSum) { // O(n^2)
+        // Case 1: Check if the list is empty
         if (head == null) {
             System.out.println("List is empty"); // If the list is empty, print message and return
             return;
         }
 
-        // Start with the head node
+        // Case 2: Start with the head node
         Node currentNode = head;
         boolean found = false; // Flag to track if any pair with the target sum is found
 
         // Outer loop to pick each node in the list (starting from the head)
         while (currentNode != null) {
-            // For each node in the outer loop, start checking pairs with the next nodes
+            // Case 3: For each node in the outer loop, start checking pairs with the next nodes
             Node innerNode = currentNode.next; // Inner loop starts from the node after the current node
 
             // Inner loop to check each subsequent node for a pair with the target sum
-            while (innerNode != null) {
-                // Check if the sum of currentNode's data and innerNode's data equals the target sum
+            while (innerNode != null && currentNode.data + innerNode.data <= targetSum) {
+                // When currentNode.data + innerNode.data > targetSum loop stops
+                // because its sorted list further elements will always give bigger result only.
+
+                // Case 4: Check if the sum of currentNode's data and innerNode's data equals the target sum
                 if (currentNode.data + innerNode.data == targetSum) {
                     // If they sum to the target, print the pair
                     System.out.println("(" + currentNode.data + ", " + innerNode.data + ")");
@@ -76,12 +79,11 @@ class CustomDoublyLinkedList {
             currentNode = currentNode.next;
         }
 
-        // If no pair with the target sum was found, print a message indicating that
+        // Case 5: If no pair with the target sum was found, print a message indicating that
         if (!found) {
             System.out.println("No pairs found with the given sum.");
         }
     }
-
 }
 
 public class Bruteforce {
