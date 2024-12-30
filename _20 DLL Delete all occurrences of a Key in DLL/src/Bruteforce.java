@@ -103,6 +103,7 @@ public class Bruteforce {
         list.addLast(4);
         list.addLast(5);
         list.addLast(2);
+        // 2 <-> 1 <-> 3 <-> 2 <-> 4 <-> 5 <-> 2 <-> null
 
         System.out.println("Original List:");
         list.printList();
