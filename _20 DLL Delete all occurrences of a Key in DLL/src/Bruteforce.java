@@ -45,27 +45,40 @@ class CustomDoublyLinkedList {
 
     // Method to delete all occurrences of a given key in the doubly linked list
     public void deleteAllOccurrences(int key) {
-        // Initialize a pointer to traverse the list
+        // Start from the head of the list
         Node current = head;
 
+        // Traverse the list until the end
         while (current != null) {
-            // If the current node matches the key
+            // Check if the current node contains the key to be deleted
             if (current.data == key) {
-                // Update the next pointer of the previous node, if it exists
-                if (current.prev != null) {
-                    current.prev.next = current.next;
-                } else {
-                    // If current node is the head, move the head to the next node
+                // Case 1: If the node to be deleted is the head of the list
+                if (current == head) {
+                    // Move the head pointer to the next node
                     head = current.next;
-                }
 
-                // Update the previous pointer of the next node, if it exists
-                if (current.next != null) {
-                    current.next.prev = current.prev;
+                    // If the new head is not null, update its prev pointer to null
+                    if (head != null) {
+                        head.prev = null;
+                    }
+                } else {
+                    // Case 2: If the node to be deleted is not the head
+                    Node nextNode = current.next; // Reference to the next node
+                    Node prevNode = current.prev; // Reference to the previous node
+
+                    // If the next node is not null, update its prev pointer to skip the current node
+                    if (nextNode != null) {
+                        nextNode.prev = prevNode;
+                    }
+
+                    // If the previous node is not null, update its next pointer to skip the current node
+                    if (prevNode != null) {
+                        prevNode.next = nextNode;
+                    }
                 }
             }
 
-            // Move to the next node
+            // Move to the next node in the list for further checks
             current = current.next;
         }
     }
