@@ -81,6 +81,10 @@ class CustomDoublyLinkedList2 {
     }
 }
 
+// T: 0(N) || s:0(1)
+// 1. The method traverses the list only once, visiting each node exactly once.
+// 2. The inner while loop (skipping duplicates) only processes nodes that are duplicates, so the overall work done across all iterations is linear.
+
 public class Bruteforce {
     public static void main(String[] args) {
         CustomDoublyLinkedList2 list = new CustomDoublyLinkedList2();
