@@ -47,7 +47,7 @@ class CustomDoublyLinkedList2 {
     }
 
     // Method to remove duplicates from a sorted doubly linked list
-    public void removeDuplicatesFromSortedDLL() {
+    public void removeDuplicatesFromSortedDLL() { // T: 0(N) || s:0(1)
         // Case 1: Check if the list is empty
         if (head == null) {
             System.out.println("List is empty"); // If the list is empty, print a message and return
@@ -82,6 +82,7 @@ class CustomDoublyLinkedList2 {
 }
 
 // T: 0(N) || s:0(1)
+// Unique Case : Keep Remember -
 // 1. The method traverses the list only once, visiting each node exactly once.
 // 2. The inner while loop (skipping duplicates) only processes nodes that are duplicates, so the overall work done across all iterations is linear.
 
