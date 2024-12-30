@@ -19,7 +19,7 @@ class CustomDoublyLinkedList2 {
     public void addLast(int data) {
         Node newNode = new Node(data); // Create a new node with the given data
         if (head == null) {
-            head = newNode; // If the list is empty, the new node becomes the head
+            head = newNode; // Case: List is empty, new node becomes the head
             return;
         }
         Node currNode = head; // Start from the head
@@ -34,13 +34,13 @@ class CustomDoublyLinkedList2 {
     // Method to print the doubly linked list from head to tail
     public void printList() {
         if (head == null) {
-            System.out.println("List is empty"); // Print if the list is empty
+            System.out.println("List is empty"); // Case: List is empty
             return;
         }
         Node currNode = head; // Start from the head
         // Traverse and print each node's data
         while (currNode != null) {
-            System.out.print(currNode.data + " <-> "); // Print data of current node
+            System.out.print(currNode.data + " <-> "); // Print data of the current node
             currNode = currNode.next; // Move to the next node
         }
         System.out.println("null"); // End of the list
@@ -60,13 +60,22 @@ class CustomDoublyLinkedList2 {
         while (currNode != null && currNode.next != null) {
             // Case 2: If the current node's data is equal to the next node's data
             if (currNode.data == currNode.next.data) {
-                Node duplicateNode = currNode.next; // Store the duplicate node
-                currNode.next = duplicateNode.next; // Link current node to the node after the duplicate
-                if (duplicateNode.next != null) {
-                    duplicateNode.next.prev = currNode; // Update the previous pointer of the next node
+                Node nextNode = currNode.next; // Store the duplicate node
+
+                // Skip all subsequent duplicates
+                while (nextNode != null && nextNode.data == currNode.data) {
+                    nextNode = nextNode.next; // Move to the first node with a different value
+                }
+                // When nextNode will reach non-duplicate no. loop will break;
+                // When nextNode will reach null (end) loop will break;
+
+                currNode.next = nextNode; // Link current node to the first non-duplicate node
+                if (nextNode != null) { // check if is nextNode not null ?
+                    nextNode.prev = currNode; // Update the previous pointer of the non-duplicate node
                 }
             } else {
-                currNode = currNode.next; // Move to the next node
+                // Case 3: Move to the next distinct node
+                currNode = currNode.next;
             }
         }
     }
@@ -75,6 +84,8 @@ class CustomDoublyLinkedList2 {
 public class Bruteforce {
     public static void main(String[] args) {
         CustomDoublyLinkedList2 list = new CustomDoublyLinkedList2();
+
+        // Adding nodes to the doubly linked list
         list.addLast(1);
         list.addLast(1);
         list.addLast(2);
