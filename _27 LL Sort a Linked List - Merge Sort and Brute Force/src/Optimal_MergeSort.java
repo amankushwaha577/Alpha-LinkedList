@@ -69,13 +69,13 @@ class CustomL {
 
         // Node fast = head; <------------------------------Normal Case
         // According to Normal Tortoise hare Middle - :
-        // 1-2-3-4   => mid : 3
+        // 1-2-3-4   => mid : 3 ( middle 2 )
         // 1-2-3-4-5 => mid : 3
 
         // Slight Modification : Exceptional for MergeSort
         Node fast = head.next; // <------------------- fast is one step ahead
         // According to Normal Tortoise hare Middle :
-        // 1-2-3-4   => mid : 2
+        // 1-2-3-4   => mid : 2 ( middle 1 )
         // 1-2-3-4-5 => mid : 3
 
         // Move fast twice as fast as slow
