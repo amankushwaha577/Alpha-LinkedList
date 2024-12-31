@@ -50,15 +50,19 @@ class CustomL {
 
     // Function to merge two sorted linked lists
     // ------------------------------------------
-    // Time Complexity: O(N1 + N2)
-    // Suppose list1 = 5 elm, list2 = 9 elm
-    // The loop will run for 5 elements of list1, and after the loop exits,
-    // possibly a few nodes of list2 will still be attached, let’s say a 2-element chain will be added
-    // directly at the end of the newly merged list.
-    // In the worst case, list1 and list2 will be fully traversed.
-    // Thus, time = 9 (for list2) + 5 (for list1, maybe one or two less) = O(N1 + N2)
-    // Space Complexity: O(1)
+    // Time Complexity: O(N1 + N2) | Space Complexity: O(1)
     // ------------------------------------------
+    // Suppose list1 = 5 elm, list2 = 9 elm
+    // A. The loop will run for 5 elements of list1, and after the loop exits,
+    //    possibly in this time a few nodes(lets say 2) of list2 also attached,
+    //    now 7 remains in list2-
+    //    ----->
+    //    now this 7-element chain will be added directly at the end of the newly merged list.
+    //    Thus, time = 5 (for list1) + 2 (for list2) = O(N1 + N2) ~= 0(N1) almost
+
+    // B. In the worst case, list1 and list2 will be fully traversed.
+    //    Thus, time = 9 (for list2) + 5 (for list1, maybe one or two less) = O(N1 + N2)
+
     public static Node mergeTwoSortedLinkedLists(Node list1, Node list2) {
         // Case 1: Create a dummy node to initialize the merged linked list
         Node dummyNode = new Node(-1); // Dummy node acts as a placeholder to simplify list construction
