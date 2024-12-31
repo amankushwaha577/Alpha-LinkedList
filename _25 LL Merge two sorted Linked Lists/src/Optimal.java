@@ -52,8 +52,8 @@ class CustomLL {
     // ------------------------------------------
     // Time Complexity: O(N1 + N2)
     // Suppose list1 = 5 elm, list2= 9 elm
-    // loop will run 5 elm + after when loop exit 4 elm chain will be attached at the end of 5th node
-    // In worst case list2 will be traversed completely => so than time = 9(for list2) + 5 *maybe (for list1) = O(N1 + N2)
+    // loop will run 5 elm for list1  + after when loop exit maybe* few nodes of list2 will left attached, let 2 elm chain will be attached at the end of newly list directly.
+    // In worst case list1, list2 will be traversed completely => so than time = 9(for list2) + 5 (maybe one two less) (for list1) = O(N1 + N2)
     // Space Complexity: O(1)
     // ------------------------------------------
     static Node sortTwoLinkedLists(Node list1, Node list2) {
