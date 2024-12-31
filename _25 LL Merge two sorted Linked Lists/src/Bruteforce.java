@@ -67,28 +67,33 @@ class CustomLL5 {
     }
 
     // Function to merge two sorted linked lists
+    //--------------------------------------------
+    //   Add in array              Sort           create new list
+    //   0(N1) + 0(N2) +    (N1+N2)log(N1+N2) +       (N1+N2)
+    // ---------------------------------------------
+    // S:0(N1+N2) for array + 0(N1+N2) for new List
     static Node sortTwoLinkedLists(Node list1, Node list2) {
         ArrayList<Integer> arr = new ArrayList<>();
         Node temp1 = list1;
         Node temp2 = list2;
 
         // Case 1: Traverse the first linked list and add its elements to the array
-        while (temp1 != null) {
+        while (temp1 != null) { // 0(N1)
             arr.add(temp1.data); // Add the current node's data to the array
             temp1 = temp1.next;  // Move to the next node in the first linked list
         }
 
         // Case 2: Traverse the second linked list and add its elements to the array
-        while (temp2 != null) {
+        while (temp2 != null) { // 0(N2)
             arr.add(temp2.data); // Add the current node's data to the array
             temp2 = temp2.next;  // Move to the next node in the second linked list
         }
 
         // Case 3: Sort the combined array in ascending order
-        Collections.sort(arr);
+        Collections.sort(arr); // (N1+N2)log(N1+N2)
 
         // Case 4: Convert the sorted array back into a "new" linked list
-        Node head = convertArrToLinkedList(arr);
+        Node head = convertArrToLinkedList(arr); // (N1+N2)
 
         // Case 5: Return the head of the newly created sorted linked list
         return head;
