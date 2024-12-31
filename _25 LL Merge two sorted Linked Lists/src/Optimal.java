@@ -63,12 +63,14 @@ class CustomLL {
             // Compare the current nodes of both lists
             if (list1.data <= list2.data) {
                 temp.next = list1;    // Link the smaller node from list1
+                temp = temp.next;         // Move the temporary pointer forward
                 list1 = list1.next;  // Move to the next node in list1
             } else {
                 temp.next = list2;    // Link the smaller node from list2
+                temp = temp.next;         // Move the temporary pointer forward
                 list2 = list2.next;  // Move to the next node in list2
             }
-            temp = temp.next;         // Move the temporary pointer forward
+
         }
 
         // Case 3: If any list has remaining elements, append them to the merged list
