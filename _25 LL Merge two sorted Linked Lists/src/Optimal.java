@@ -119,5 +119,14 @@ public class Optimal {
             temp = temp.next;
         }
         System.out.println("null");
+
+        // Yes, the sortTwoLinkedLists method modifies the original lists
+        // by re-linking their nodes during the merge process.
+        // After the function completes, the original linked lists (list1 and list2) lose their independent structures and become part of the merged list.
+        // Print the original lists
+        System.out.println("Original List 1:");
+        list1.printList();
+        System.out.println("Original List 2:");
+        list2.printList();
     }
 }
