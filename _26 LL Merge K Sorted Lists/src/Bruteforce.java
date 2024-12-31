@@ -67,7 +67,8 @@ class CustomLL {
         Collections.sort(arr);
 
         // Convert the sorted array back into a linked list and return the head of the merged list
-        return convertArrToLinkedList(arr);
+        Node newlyListHead = convertArrToLinkedList(arr);
+        return newlyListHead;
     }
 
 
