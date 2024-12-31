@@ -51,6 +51,9 @@ class CustomLL {
     // Function to merge two sorted linked lists
     // ------------------------------------------
     // Time Complexity: O(N1 + N2)
+    // Suppose list1 = 5 elm, list2= 9 elm
+    // loop will run 5 elm + after when loop exit 4 elm chain will be attached at the end of 5th node
+    // In worst case list2 will be traversed completely => so than time = 9(for list2) + 5 *maybe (for list1) = O(N1 + N2)
     // Space Complexity: O(1)
     // ------------------------------------------
     static Node sortTwoLinkedLists(Node list1, Node list2) {
