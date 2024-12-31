@@ -34,6 +34,8 @@ class CustomLL {
     }
 
     // Function to sort a linked list using the Brute Force approach
+    // T : 0(N) +  NlogN + 0(N)
+    // S : 0(N)
     public void sortLL() {
         // Create a list to store node values
         ArrayList<Integer> arr = new ArrayList<>();
@@ -42,17 +44,17 @@ class CustomLL {
         Node temp = head;
 
         // Traverse the linked list and store node values in the list
-        while (temp != null) {
+        while (temp != null) { // 0(N)
             arr.add(temp.data);
             temp = temp.next;
         }
 
         // Sort the list containing node values
-        Collections.sort(arr);
+        Collections.sort(arr); // NlogN
 
         // Reassign sorted values to the linked list nodes
         temp = head;
-        for (int i = 0; i < arr.size(); i++) {
+        for (int i = 0; i < arr.size(); i++) { // 0(N)
             temp.data = arr.get(i);
             temp = temp.next;
         }
