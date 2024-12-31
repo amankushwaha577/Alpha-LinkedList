@@ -70,13 +70,13 @@ class CustomLL {
                 temp = temp.next;         // Move the temporary pointer forward
                 list2 = list2.next;  // Move to the next node in list2
             }
-
         }
 
         // Case 3: If any list has remaining elements, append them to the merged list
         if (list1 != null) { // If list1 has remaining nodes
             temp.next = list1;
-        } else {             // If list2 has remaining nodes
+        }
+        if (list2 != null) { // If list2 has remaining nodes
             temp.next = list2;
         }
 
@@ -120,13 +120,21 @@ public class Optimal {
         }
         System.out.println("null");
 
+        // is it change original lists?
+        // -----------------------------------------
         // Yes, the sortTwoLinkedLists method modifies the original lists
         // by re-linking their nodes during the merge process.
         // After the function completes, the original linked lists (list1 and list2) lose their independent structures and become part of the merged list.
         // Print the original lists
+
         System.out.println("Original List 1:");
         list1.printList();
         System.out.println("Original List 2:");
         list2.printList();
+
+        // If You Need to Preserve the Original Lists:
+        // -------------------------------------------
+        // 1. Implement a helper method to deep copy a linked list.
+        // 2. Use these copies as inputs to the sortTwoLinkedLists method.
     }
 }
