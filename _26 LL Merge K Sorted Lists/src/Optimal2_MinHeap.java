@@ -107,6 +107,9 @@ class CustomL2 {
     }
 }
 
+// Min heap is Data structure that returns min value always.
+// In Java Priority Queue is DS that implements Min Heap.
+
 public class Optimal2_MinHeap {
     public static void main(String[] args) {
         CustomL2 list1 = new CustomL2(); // Create the first linked list
