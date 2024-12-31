@@ -48,26 +48,32 @@ class CustomLL {
     }
 
     // Function to merge K sorted linked lists
+    //--------------------------------------------
+    // let no of list Head = k, elements in each list = N
+    //   Add in array          Sort           create new list
+    //   0(K * N) +     (K * N)log(K * N) +       (K * N)
+    // ---------------------------------------------
+    // S:0(K * N) for array + 0(K * N) for new List
     static Node mergeKLists(ArrayList<Node> listArray) {
         // Create an ArrayList to store all the elements from all the linked lists
         ArrayList<Integer> arr = new ArrayList<>();
 
         // Traverse each linked list in the listArray
-        for (Node headNode : listArray) {
+        for (Node headNode : listArray) { // runs 0(K)
             Node temp = headNode; // Start from the head of each linked list
 
             // Traverse the current linked list and add each node's data to the array
-            while (temp != null) {
+            while (temp != null) { // runs 0(N) for each  K
                 arr.add(temp.data);  // Add the data of the current node to the array
                 temp = temp.next;    // Move to the next node in the linked list
             }
         }
 
         // Sort the array containing elements from all linked lists
-        Collections.sort(arr);
+        Collections.sort(arr); // (K * N)log(K * N)
 
         // Convert the sorted array back into a linked list and return the head of the merged list
-        Node newlyListHead = convertArrToLinkedList(arr);
+        Node newlyListHead = convertArrToLinkedList(arr); // (K * N)
         return newlyListHead;
     }
 
