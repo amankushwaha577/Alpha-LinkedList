@@ -90,9 +90,10 @@ class CustomL {
         // Case 1: Find the middle of the list
         // Split the linked list into two halves
         Node middle = findMiddle(head);
+        Node left = head;         // Start of the first half
         Node right = middle.next; // Start of the second half
         middle.next = null;       // End the first half
-        Node left = head;         // Start of the first half
+
 
         // Case 2: Recursively sort the left half
         left = mergeSort(left);
@@ -103,6 +104,12 @@ class CustomL {
         // Case 4: Merge the two sorted halves
         return mergeTwoSortedLinkedLists(left, right);
     }
+    // A. 1-2-3-4   => mid : 3
+    //    left = 1-2-3
+    //    right = 4                  ( next of mid )
+    // B. 1-2-3-4-5 => mid : 3
+    //    left = 1-2-3
+    //    right = 4-5                 ( next of mid )
 
     // Method to print the linked list
     public void printList(Node head) {
