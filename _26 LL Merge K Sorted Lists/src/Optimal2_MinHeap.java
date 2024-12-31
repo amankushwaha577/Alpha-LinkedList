@@ -91,15 +91,16 @@ class CustomL2 {
             // Get the top element (minimum node value) from the priority queue
             Map.Entry<Integer, Node> it = pq.poll();
 
+            // Set the next pointer of the current node in the merged list
+            temp.next = it.getValue();
+            temp = temp.next;
+
             // Check if the current node has a next node
             if (it.getValue().next != null) {
                 // Push the next node into the priority queue
                 pq.add(new AbstractMap.SimpleEntry<>(it.getValue().next.data, it.getValue().next));
             }
 
-            // Set the next pointer of the current node in the merged list
-            temp.next = it.getValue();
-            temp = temp.next;
         }
 
         // Return the merged linked list
