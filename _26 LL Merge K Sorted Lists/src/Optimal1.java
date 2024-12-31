@@ -95,6 +95,22 @@ class CustomL {
     }
 
     // Function to merge K sorted linked lists
+    // -----------------------------------------------------------
+    // Time Complexity for merging two list of size N1, N2 : O(N1 + N2)
+    // -----------------------------------------------------------
+    // Time Complexity for merging K list each of size N   : N* [ ( K * (K+1))/2 ]
+    // -----------------------------------------------------------
+    // Suppose we are having size of listArray  = k
+    // It means No of Heads = k = No of Lists
+    // Suppose size of each list = N
+    // ------->
+    // Fist Merge,      i=1 =  N1+ N2                        = 2N
+    // Second Merge     i=2 = (N1+ N2) + N3                  = 3N
+    // Third/last Merge i=3 = (N1+ N2 + N3) + N4  (let k =4) = 4N
+    // Total Time = 2N + 3N + 4N + ....KN  (K= No Of Lists)
+    //            = N( 1+2+3+..K)
+    //            = N* [ ( K * (K+1))/2 ]
+
     public static Node mergeKLists(ArrayList<Node> listArray) {
         // Consider the first linked list
         // as the starting point for merging
