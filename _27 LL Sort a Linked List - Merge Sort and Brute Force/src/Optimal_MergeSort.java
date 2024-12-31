@@ -66,7 +66,17 @@ class CustomL {
         }
 
         Node slow = head;
-        Node fast = head.next;
+
+        // Node fast = head; <------------------------------Normal Case
+        // According to Normal Tortoise hare Middle - :
+        // 1-2-3-4   => mid : 3
+        // 1-2-3-4-5 => mid : 3
+
+        // Slight Modification : Exceptional for MergeSort
+        Node fast = head.next; // <------------------- fast is one step ahead
+        // According to Normal Tortoise hare Middle :
+        // 1-2-3-4   => mid : 2
+        // 1-2-3-4-5 => mid : 3
 
         // Move fast twice as fast as slow
         while (fast != null && fast.next != null) {
@@ -76,8 +86,7 @@ class CustomL {
 
         return slow; // Slow pointer is at the middle
     }
-    // 1-2-3-4   => mid : 3
-    // 1-2-3-4-5 => mid : 3
+
 
 
     // Function to perform merge sort on a linked list
@@ -104,9 +113,9 @@ class CustomL {
         // Case 4: Merge the two sorted halves
         return mergeTwoSortedLinkedLists(left, right);
     }
-    // A. 1-2-3-4   => mid : 3
-    //    left = 1-2-3
-    //    right = 4                  ( next of mid )
+    // A. 1-2-3-4   => mid : 2
+    //    left = 1-2
+    //    right = 3-4                 ( next of mid )
     // B. 1-2-3-4-5 => mid : 3
     //    left = 1-2-3
     //    right = 4-5                 ( next of mid )
