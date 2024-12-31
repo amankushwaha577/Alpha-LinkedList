@@ -90,6 +90,19 @@ class CustomL {
 
 
     // Function to perform merge sort on a linked list
+    // -----------------------------------------------------------
+    // Time Complexity : 0(NlogN)  | Space Complexity :  0(log(N))
+    // -----------------------------------------------------------
+    // S : height of Recursive stack = 0(log(N)) | N = no of nodes
+    // T : Total Recursion Height * ( Total Inner Operations )
+    //    =   0(logN)  * ( 0( findMiddle() ) + 0( mergeTwoSortedLinkedLists() ) )
+    //    =   0(logN)  * (      0(N/2)       +             0(N)                 )
+
+    // I think at 21:39 the Space Complexity won't be O(1),
+    // the reason being that the recursion stack adds up to Space Complexity of O(log N).
+    // But anyways there's no explicitly auxiliary space is being used, so the reasoning is always O(1).
+    // Extra Space : O(1)
+    // Recursive Space :   O(log N) | Its True.(Interview)
     public Node mergeSort(Node head) {
         // Base case: If the list has 0 or 1 node, it is already sorted
         if (head == null || head.next == null) {
@@ -98,7 +111,7 @@ class CustomL {
 
         // Case 1: Find the middle of the list
         // Split the linked list into two halves
-        Node middle = findMiddle(head);
+        Node middle = findMiddle(head);  // 0(N/2)
         Node left = head;         // Start of the first half
         Node right = middle.next; // Start of the second half
         middle.next = null;       // End the first half
@@ -111,7 +124,8 @@ class CustomL {
         right = mergeSort(right);
 
         // Case 4: Merge the two sorted halves
-        return mergeTwoSortedLinkedLists(left, right);
+        return mergeTwoSortedLinkedLists(left, right); // mergeTwoSortedLinkedLists() takes 0(N1+N2) ~ 0(N)
+
     }
     // A. 1-2-3-4   => mid : 2
     //    left = 1-2
