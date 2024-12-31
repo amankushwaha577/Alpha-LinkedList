@@ -1,6 +1,4 @@
-
-import java.util.ArrayList;
-        import java.util.Collections;
+import java.util.*;
 
 class CustomL {
     Node head; // Head of the linked list
@@ -11,9 +9,9 @@ class CustomL {
         Node next;     // Pointer to the next node
 
         // Constructor to initialize a node
-        public Node(int data1) {
-            this.data = data1;  // Set the data
-            this.next = null;   // Initialize next as null
+        public Node(int data) {
+            this.data = data;  // Set the data
+            this.next = null;  // Initialize next as null
         }
     }
 
@@ -34,35 +32,77 @@ class CustomL {
         currNode.next = newNode; // Attach the new node at the end
     }
 
-    // Function to sort a linked list using the Brute Force approach
-    // T : 0(N) +  NlogN + 0(N)
-    // S : 0(N)
-    public void sortLL() {
-        // Create a list to store node values
-        ArrayList<Integer> arr = new ArrayList<>();
+    // Merge two sorted linked lists
+    private Node mergeTwoSortedLinkedLists(Node list1, Node list2) {
+        Node dummyNode = new Node(-1); // Dummy node as the start of the merged list
+        Node temp = dummyNode;
 
-        // Temporary pointer to traverse the linked list
-        Node temp = head;
-
-        // Traverse the linked list and store node values in the list
-        while (temp != null) { // 0(N)
-            arr.add(temp.data);
-            temp = temp.next;
+        // Traverse both lists and merge them in sorted order
+        while (list1 != null && list2 != null) {
+            if (list1.data <= list2.data) {
+                temp.next = list1;
+                list1 = list1.next;
+            } else {
+                temp.next = list2;
+                list2 = list2.next;
+            }
+            temp = temp.next; // Move the temp pointer forward
         }
 
-        // Sort the list containing node values
-        Collections.sort(arr); // NlogN
-
-        // Reassign sorted values to the linked list nodes
-        temp = head;
-        for (int i = 0; i < arr.size(); i++) { // 0(N)
-            temp.data = arr.get(i);
-            temp = temp.next;
+        // If elements remain in either list, append them
+        if (list1 != null) {
+            temp.next = list1;
+        } else {
+            temp.next = list2;
         }
+
+        return dummyNode.next; // Return the merged list, starting from the next of dummy node
+    }
+
+    // Find the middle of the linked list
+    private Node findMiddle(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node slow = head;
+        Node fast = head.next;
+
+        // Move fast twice as fast as slow
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow; // Slow pointer is at the middle
+    }
+
+    // Function to perform merge sort on a linked list
+    public Node mergeSort(Node head) {
+        // Base case: If the list has 0 or 1 node, it is already sorted
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // Case 1: Find the middle of the list
+        // Split the linked list into two halves
+        Node middle = findMiddle(head);
+        Node right = middle.next; // Start of the second half
+        middle.next = null;       // End the first half
+        Node left = head;         // Start of the first half
+
+        // Case 2: Recursively sort the left half
+        left = mergeSort(left);
+
+        // Case 3: Recursively sort the right half
+        right = mergeSort(right);
+
+        // Case 4: Merge the two sorted halves
+        return mergeTwoSortedLinkedLists(left, right);
     }
 
     // Method to print the linked list
-    public void printList() {
+    public void printList(Node head) {
         if (head == null) {
             System.out.println("List is empty");
             return;
@@ -87,12 +127,12 @@ public class Optimal_MergeSort {
         list.addLast(3);
 
         System.out.println("Original List:");
-        list.printList();
+        list.printList(list.head);
 
-        // Sort the linked list using Brute Force
-        list.sortLL();
+        // Directly call mergeSort and update the head with the sorted list
+        list.head = list.mergeSort(list.head);
 
         System.out.println("Sorted List:");
-        list.printList();
+        list.printList(list.head);
     }
 }
