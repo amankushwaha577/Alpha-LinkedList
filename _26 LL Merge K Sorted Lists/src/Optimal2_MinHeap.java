@@ -60,14 +60,17 @@ class CustomL2 {
 
     // Function to merge K sorted linked lists
     // ---------------------------------------------------------
-    // Time Complexity: O(N log K) | Space Complexity: O(K)
+    // Time Complexity: O(N log k) | Space Complexity: O(k)
     // ---------------------------------------------------------
-    // N = Total number of nodes across all K lists.
-    // K = The number of lists.
-    // 1. We are inserting K elements into the priority queue (heap), and
-    //    each insertion operation takes O(log K).
-    // 2. We do this for N nodes, so the overall time complexity becomes O(N log K).
-    // 3. Space complexity is O(K) due to the space required for the priority queue.
+    // A. To add insert all heads = k * logk = No of Heads * log(size of PQ)
+    // B. We are polling and inserting every single node for all lists
+    //    total nodes = k * N
+    //    cost of each insert/poll = logk ( k= size of PQ)
+    //    So Total cost = k * N * (2* logk )
+    // C. T : (k* logk) + k * N * (2* logk ) => 0(Nlogk)
+    // ---------------------------------------------------------
+    // Space Complexity: O(k) | k= size of PQ
+    // ---------------------------------------------------------
     public static Node mergeKLists(ArrayList<Node> listArray) {
         // Priority queue to maintain sorted order based on node values
         // Pairs store node value and pointer to the node
@@ -78,9 +81,11 @@ class CustomL2 {
             // Check if the current linked list exists
             if (node != null) {
                 // Push the pair of node data and node pointer into the priority queue
-                pq.add(new AbstractMap.SimpleEntry<>(node.data, node));
+                pq.add(new AbstractMap.SimpleEntry<>(node.data, node)); // logK : in PQ every insert takes log(size of PQ)
             }
         }
+        // For loop is running for no of heads = k = no of lists
+        // So Total TIme = k* logk
 
         // Create a dummy node to build the merged list
         Node dummyNode = new Node(-1, null);
@@ -100,8 +105,15 @@ class CustomL2 {
                 // Push the next node into the priority queue
                 pq.add(new AbstractMap.SimpleEntry<>(it.getValue().next.data, it.getValue().next));
             }
-
         }
+        // A. while loop is running for entire elements = k * N
+        //    ie. k = no of heads = no of lists || N= number of nodes in each list
+        // B. We know in priority queue :
+        //    each poll() => logk
+        //    each add() => logk
+        //    ie. k = size of priority queue.
+        // C. Total = k * N * ( logk for poll + logk for add )
+        //          = k * N * 2logk
 
         // Return the merged linked list
         return dummyNode.next;
