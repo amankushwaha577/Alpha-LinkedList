@@ -76,6 +76,9 @@ class CustomL {
 
         return slow; // Slow pointer is at the middle
     }
+    // 1-2-3-4   => mid : 3
+    // 1-2-3-4-5 => mid : 3
+
 
     // Function to perform merge sort on a linked list
     public Node mergeSort(Node head) {
