@@ -63,11 +63,11 @@ class CustomLL {
             // Compare the current nodes of both lists
             if (list1.data <= list2.data) {
                 temp.next = list1;    // Link the smaller node from list1
-                temp = temp.next;         // Move the temporary pointer forward
-                list1 = list1.next;  // Move to the next node in list1
+                temp = list1;         // Move the temporary pointer forward or- temp = temp.next;
+                list1 = list1.next;   // Move to the next node in list1
             } else {
                 temp.next = list2;    // Link the smaller node from list2
-                temp = temp.next;         // Move the temporary pointer forward
+                temp = list2;         // Move the temporary pointer forward or- temp = temp.next;
                 list2 = list2.next;  // Move to the next node in list2
             }
         }
@@ -127,6 +127,7 @@ public class Optimal {
         // After the function completes, the original linked lists (list1 and list2) lose their independent structures and become part of the merged list.
         // Print the original lists
 
+        System.out.println("-------------------------------------------");
         System.out.println("Original List 1:");
         list1.printList();
         System.out.println("Original List 2:");
